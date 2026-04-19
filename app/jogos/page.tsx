@@ -253,7 +253,7 @@ export default function JogosPage() {
                 key={category}
                 type="button"
                 onClick={() => setCategoriaAtiva(category)}
-                className={`cursor-pointer whitespace-nowrap rounded-full px-5 py-2 text-sm transition-colors ${
+                className={`cursor-pointer whitespace-nowrap rounded-xl px-5 py-2 text-sm transition-colors ${
                   isActive
                     ? "bg-nova-blue text-white"
                     : "bg-nova-card text-nova-textMuted hover:bg-nova-card/40 hover:text-white"
@@ -312,14 +312,14 @@ export default function JogosPage() {
                 <div className="absolute inset-0 z-20 flex flex-col justify-end opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
                   <div className="relative z-30 p-3 pb-4">
-                    <span className="flex w-full items-center justify-center rounded-lg bg-nova-blue py-2 text-sm font-bold text-white shadow-lg shadow-nova-blue/30 transition-colors duration-200 group-hover:bg-nova-blueLight">
+                    <span className="flex w-full items-center justify-center rounded-xl bg-nova-blue py-2 text-sm font-bold text-white shadow-lg shadow-nova-blue/30 transition-colors duration-200 group-hover:bg-nova-blueLight">
                       Jogar Agora
                     </span>
                   </div>
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 z-10 p-2 transition-opacity duration-300 group-hover:opacity-0">
-                  <div className="rounded-lg bg-black/60 px-2 py-1">
+                  <div className="rounded-xl bg-black/60 px-2 py-1">
                     <p className="truncate text-center text-xs font-semibold text-white">
                       {game.nome}
                     </p>
@@ -335,43 +335,43 @@ export default function JogosPage() {
       <div className="mt-8 flex items-center justify-center gap-2">
         <button
           type="button"
-          className="flex items-center justify-center rounded-lg bg-nova-card px-3 py-2 text-sm text-nova-textMuted"
+          className="flex items-center justify-center rounded-xl bg-nova-card px-3 py-2 text-sm text-nova-textMuted"
         >
           {"<"} Anterior
         </button>
         <button
           type="button"
-          className="flex items-center justify-center rounded-lg bg-nova-blue px-3 py-2 text-sm text-white"
+          className="flex items-center justify-center rounded-xl bg-nova-blue px-3 py-2 text-sm text-white"
         >
           1
         </button>
         <button
           type="button"
-          className="flex items-center justify-center rounded-lg bg-nova-card px-3 py-2 text-sm text-nova-textMuted"
+          className="flex items-center justify-center rounded-xl bg-nova-card px-3 py-2 text-sm text-nova-textMuted"
         >
           2
         </button>
         <button
           type="button"
-          className="flex items-center justify-center rounded-lg bg-nova-card px-3 py-2 text-sm text-nova-textMuted"
+          className="flex items-center justify-center rounded-xl bg-nova-card px-3 py-2 text-sm text-nova-textMuted"
         >
           3
         </button>
         <button
           type="button"
-          className="flex items-center justify-center rounded-lg bg-nova-card px-3 py-2 text-sm text-nova-textMuted"
+          className="flex items-center justify-center rounded-xl bg-nova-card px-3 py-2 text-sm text-nova-textMuted"
         >
           ...
         </button>
         <button
           type="button"
-          className="flex items-center justify-center rounded-lg bg-nova-card px-3 py-2 text-sm text-nova-textMuted"
+          className="flex items-center justify-center rounded-xl bg-nova-card px-3 py-2 text-sm text-nova-textMuted"
         >
           8
         </button>
         <button
           type="button"
-          className="flex items-center justify-center rounded-lg bg-nova-card px-3 py-2 text-sm text-nova-textMuted"
+          className="flex items-center justify-center rounded-xl bg-nova-card px-3 py-2 text-sm text-nova-textMuted"
         >
           Próximo {">"}
         </button>

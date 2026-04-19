@@ -56,7 +56,7 @@ export default function JackpotBanner() {
       <div className="flex flex-col items-end gap-2">
         <button
           type="button"
-          className="rounded-full bg-nova-blue px-8 py-3 font-bold text-white transition-colors hover:bg-nova-blueLight"
+          className="rounded-xl bg-nova-blue px-8 py-3 font-bold text-white transition-colors hover:bg-nova-blueLight"
         >
           PARTICIPAR
         </button>

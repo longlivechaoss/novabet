@@ -1,20 +1,18 @@
 "use client";
 
 /*
- * MOBILE BANNER DIMENSIONS (para criar no Photoshop/Canva):
- * Largura: 750px | Altura: 380px | Proporção: ~2:1
- * O banner ocupa calc(100vw - 40px) na tela
- * Em iPhone 14 Pro Max (430px): ~390px de largura visível
- * Arquivos em /public/images/banners/ — se usar .png em vez de .webp, ajuste o array mobileBanners abaixo.
+ * Banners: URLs vêm da tabela `banners` no Supabase (hook useBanners + Realtime).
+ * Fallback: `data/jogos.ts` (banners, bannersLaterais) e lista mobile local se o fetch falhar/vazio.
+ * Mobile: 750×380px — ver comentários anteriores no repositório.
  */
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { banners, bannersLaterais } from "@/data/jogos";
+import { useBanners } from "@/hooks/useBanners";
 
-/** Banners dedicados ao carrossel mobile (ficheiros em /public/images/banners/) */
-const mobileBanners = [
+const mobileFallback = [
   { src: "/images/banners/mobile-1.webp", alt: "Promoção 1", href: "/" },
   { src: "/images/banners/mobile-2.webp", alt: "Promoção 2", href: "/" },
   { src: "/images/banners/mobile-3.webp", alt: "Promoção 3", href: "/" },
@@ -31,23 +29,66 @@ export default function BannerSection() {
   const [mainFailedImages, setMainFailedImages] = useState<Record<number, boolean>>({});
   const [sideFailedImages, setSideFailedImages] = useState<Record<number, boolean>>({});
 
+  const { principal: bannersDB, lateral: lateraisDB, mobile: mobileDB } = useBanners();
+
+  const slidesParaRenderizar = useMemo(
+    () =>
+      bannersDB.length > 0
+        ? bannersDB.map((b, i) => ({
+            id: i + 1,
+            imagem: b.url,
+            link: "#",
+            alt: b.label,
+            gradient: "from-nova-card to-nova-elevated"
+          }))
+        : banners,
+    [bannersDB]
+  );
+
+  const lateraisParaRenderizar = useMemo(
+    () =>
+      lateraisDB.length > 0
+        ? lateraisDB.map((b, i) => ({
+            id: i + 1,
+            imagem: b.url,
+            link: "#",
+            alt: b.label,
+            gradient: "from-nova-card to-nova-elevated"
+          }))
+        : bannersLaterais,
+    [lateraisDB]
+  );
+
+  const mobileBanners = useMemo(
+    () =>
+      mobileDB.length > 0
+        ? mobileDB.map((b) => ({ src: b.url, alt: b.label, href: "/" }))
+        : mobileFallback,
+    [mobileDB]
+  );
+
+  const mainSlideCount = slidesParaRenderizar.length;
+  const mobileSlideCount = mobileBanners.length;
+
   useEffect(() => {
+    if (mainSlideCount === 0) return;
     const intervalId = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % banners.length);
+      setActiveIndex((current) => (current + 1) % mainSlideCount);
     }, 4000);
 
     return () => window.clearInterval(intervalId);
-  }, []);
+  }, [mainSlideCount]);
 
   useEffect(() => {
+    if (mobileSlideCount === 0) return;
     const intervalId = window.setInterval(() => {
-      setMobileActiveIndex((current) => (current + 1) % mobileBanners.length);
+      setMobileActiveIndex((current) => (current + 1) % mobileSlideCount);
     }, 4000);
 
     return () => window.clearInterval(intervalId);
-  }, []);
+  }, [mobileSlideCount]);
 
-  const totalSlides = banners.length;
+  const totalSlides = mainSlideCount;
 
   function goPrevSlide() {
     setActiveIndex((i) => (i - 1 + totalSlides) % totalSlides);
@@ -62,7 +103,7 @@ export default function BannerSection() {
       {/* MOBILE BANNER */}
       <div
         className="block md:hidden"
-        style={{ position: 'relative', height: '160px', margin: '4px -16px 8px', overflow: 'hidden' }}
+        style={{ position: "relative", height: "160px", margin: "4px -16px 8px", overflow: "hidden" }}
       >
         {mobileBanners.map((banner, index) => {
           let offset = index - mobileActiveIndex;
@@ -75,27 +116,27 @@ export default function BannerSection() {
               key={banner.src}
               onClick={() => offset !== 0 && setMobileActiveIndex(index)}
               style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: '80%',
-                height: '100%',
-                borderRadius: '12px',
-                overflow: 'hidden',
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                width: "80%",
+                height: "100%",
+                borderRadius: "12px",
+                overflow: "hidden",
                 transform: `translate(-50%, -50%) translateX(${offset * 92}%) scale(${offset === 0 ? 1 : 0.82})`,
                 zIndex: offset === 0 ? 10 : 5,
                 opacity: offset === 0 ? 1 : 0.45,
-                transition: 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                cursor: offset === 0 ? 'default' : 'pointer',
-                boxShadow: offset === 0 ? '0 8px 24px rgba(0,0,0,0.5)' : 'none',
+                transition: "all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                cursor: offset === 0 ? "default" : "pointer",
+                boxShadow: offset === 0 ? "0 8px 24px rgba(0,0,0,0.5)" : "none"
               }}
             >
               <img
                 src={banner.src}
                 alt={banner.alt}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
+                  (e.target as HTMLImageElement).style.display = "none";
                 }}
               />
             </div>
@@ -106,26 +147,28 @@ export default function BannerSection() {
         <button
           type="button"
           onClick={() =>
-            setMobileActiveIndex((i) => (i - 1 + mobileBanners.length) % mobileBanners.length)
+            setMobileActiveIndex(
+              (i) => (i - 1 + mobileBanners.length) % mobileBanners.length
+            )
           }
           style={{
-            position: 'absolute',
-            left: '2%',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            width: '28px',
-            height: '28px',
-            borderRadius: '50%',
-            background: '#1652F0',
-            boxShadow: '0 0 12px rgba(22,82,240,0.6)',
-            border: 'none',
-            color: '#fff',
-            fontSize: '20px',
-            cursor: 'pointer',
+            position: "absolute",
+            left: "2%",
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: "28px",
+            height: "28px",
+            borderRadius: "50%",
+            background: "#1652F0",
+            boxShadow: "0 0 12px rgba(22,82,240,0.6)",
+            border: "none",
+            color: "#fff",
+            fontSize: "20px",
+            cursor: "pointer",
             zIndex: 20,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
           }}
         >
           ‹
@@ -134,25 +177,27 @@ export default function BannerSection() {
         {/* Arrow Right */}
         <button
           type="button"
-          onClick={() => setMobileActiveIndex((i) => (i + 1) % mobileBanners.length)}
+          onClick={() =>
+            setMobileActiveIndex((i) => (i + 1) % mobileBanners.length)
+          }
           style={{
-            position: 'absolute',
-            right: '2%',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            width: '28px',
-            height: '28px',
-            borderRadius: '50%',
-            background: '#1652F0',
-            boxShadow: '0 0 12px rgba(22,82,240,0.6)',
-            border: 'none',
-            color: '#fff',
-            fontSize: '20px',
-            cursor: 'pointer',
+            position: "absolute",
+            right: "2%",
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: "28px",
+            height: "28px",
+            borderRadius: "50%",
+            background: "#1652F0",
+            boxShadow: "0 0 12px rgba(22,82,240,0.6)",
+            border: "none",
+            color: "#fff",
+            fontSize: "20px",
+            cursor: "pointer",
             zIndex: 20,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
           }}
         >
           ›
@@ -161,12 +206,12 @@ export default function BannerSection() {
         {/* Dots */}
         <div
           style={{
-            position: 'absolute',
-            bottom: '-18px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            gap: '6px',
+            position: "absolute",
+            bottom: "-18px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            gap: "6px"
           }}
         >
           {mobileBanners.map((_, i) => (
@@ -175,14 +220,14 @@ export default function BannerSection() {
               type="button"
               onClick={() => setMobileActiveIndex(i)}
               style={{
-                width: i === mobileActiveIndex ? '14px' : '6px',
-                height: '6px',
-                borderRadius: '3px',
-                background: i === mobileActiveIndex ? '#1652F0' : 'rgba(255,255,255,0.3)',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-                padding: 0,
+                width: i === mobileActiveIndex ? "14px" : "6px",
+                height: "6px",
+                borderRadius: "3px",
+                background: i === mobileActiveIndex ? "#1652F0" : "rgba(255,255,255,0.3)",
+                border: "none",
+                cursor: "pointer",
+                transition: "all 0.2s",
+                padding: 0
               }}
             />
           ))}
@@ -200,7 +245,7 @@ export default function BannerSection() {
             className="flex h-full transition-transform duration-700 ease-out"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           >
-            {banners.map((slide) => (
+            {slidesParaRenderizar.map((slide) => (
               <a
                 key={slide.id}
                 href={slide.link}
@@ -277,7 +322,7 @@ export default function BannerSection() {
         </button>
 
         <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2">
-          {banners.map((slide, index) => (
+          {slidesParaRenderizar.map((slide, index) => (
             <button
               key={slide.id}
               type="button"
@@ -292,7 +337,7 @@ export default function BannerSection() {
       </div>
 
       <div className="hidden gap-5 md:grid md:grid-cols-2 xl:h-[360px] xl:grid-cols-1 xl:grid-rows-2">
-        {bannersLaterais.map((banner) => (
+        {lateraisParaRenderizar.map((banner) => (
           <motion.a
             key={banner.id}
             href={banner.link}

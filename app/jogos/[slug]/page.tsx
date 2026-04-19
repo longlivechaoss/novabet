@@ -45,7 +45,7 @@ export default function JogoPage({ params }: JogoPageProps) {
                 <button
                   type="button"
                   onClick={abrirCadastro}
-                  className="mt-6 rounded-full bg-nova-blue px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
+                  className="mt-6 rounded-xl bg-nova-blue px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
                 >
                   REGISTRE-SE GRÁTIS
                 </button>
@@ -75,7 +75,7 @@ export default function JogoPage({ params }: JogoPageProps) {
                     className="flex gap-2 border-b border-nova-border/50 py-2 text-xs"
                   >
                     <div
-                      className={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white ${mensagemItem.cor}`}
+                      className={`flex h-7 w-7 flex-shrink-0 items-center justify-center !rounded-full text-[11px] font-bold text-white ${mensagemItem.cor}`}
                     >
                       {mensagemItem.nome.charAt(0)}
                     </div>
@@ -99,7 +99,7 @@ export default function JogoPage({ params }: JogoPageProps) {
                 />
                 <button
                   type="button"
-                  className="rounded-lg bg-nova-blue px-3 py-2 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
+                  className="rounded-xl bg-nova-blue px-3 py-2 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
                 >
                   →
                 </button>

@@ -79,7 +79,7 @@ export default function Notificacoes() {
       <button
         type="button"
         onClick={() => setIsOpen((current) => !current)}
-        className="relative flex h-10 w-10 items-center justify-center rounded-full border border-nova-border bg-nova-card text-lg text-white transition hover:border-nova-blue hover:bg-nova-elevated"
+        className="relative flex h-10 w-10 items-center justify-center !rounded-full border border-nova-border bg-nova-card text-lg text-white transition hover:border-nova-blue hover:bg-nova-elevated"
         aria-label="Abrir notificações"
       >
         🔔
@@ -111,7 +111,7 @@ export default function Notificacoes() {
                 onClick={() => marcarComoLida(notificacao.id)}
                 className="flex w-full items-start gap-3 border-b border-nova-border p-4 text-left transition hover:bg-nova-elevated/60"
               >
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-nova-card/40 text-lg">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center !rounded-full bg-nova-card/40 text-lg">
                   {notificacao.icon}
                 </div>
                 <div className="flex-1">

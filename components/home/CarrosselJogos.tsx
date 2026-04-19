@@ -93,8 +93,11 @@ export default function CarrosselJogos({ titulo, jogos, mostrarBadges = false }:
   };
 
   return (
-    <div className="mb-3 mt-3">
-      <div className="mb-3 flex items-center justify-between pr-6">
+    <div className="mb-3 mt-3 w-full">
+      <div
+        className="flex items-center justify-between mb-3"
+        style={{ width: "100%", display: "flex", justifyContent: "space-between" }}
+      >
         <div className="flex items-center gap-2.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -112,7 +115,7 @@ export default function CarrosselJogos({ titulo, jogos, mostrarBadges = false }:
           <button
             type="button"
             onClick={rolarEsquerda}
-            className="flex h-7 w-7 items-center justify-center rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
+            className="flex h-7 w-7 items-center justify-center !rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
             style={{ fontSize: "16px" }}
             aria-label="Anterior"
           >
@@ -121,7 +124,7 @@ export default function CarrosselJogos({ titulo, jogos, mostrarBadges = false }:
           <button
             type="button"
             onClick={rolarDireita}
-            className="flex h-7 w-7 items-center justify-center rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
+            className="flex h-7 w-7 items-center justify-center !rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
             style={{ fontSize: "16px" }}
             aria-label="Próximo"
           >
@@ -129,7 +132,7 @@ export default function CarrosselJogos({ titulo, jogos, mostrarBadges = false }:
           </button>
           <Link
             href="/jogos"
-            className="flex items-center gap-1 rounded-lg bg-nova-blue px-3 py-1 text-xs font-semibold text-white transition hover:bg-nova-blueLight"
+            className="flex items-center gap-1 rounded-xl bg-nova-blue px-3 py-1 text-xs font-semibold text-white transition hover:bg-nova-blueLight"
           >
             Ver todos <span>›</span>
           </Link>
@@ -203,7 +206,7 @@ export default function CarrosselJogos({ titulo, jogos, mostrarBadges = false }:
                     <div className="absolute inset-0 z-10 flex flex-col justify-end opacity-0 transition-opacity duration-300 group-hover/card:opacity-100">
                       <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
                       <div className="relative z-20 p-3 pb-4">
-                        <span className="flex w-full items-center justify-center rounded-lg bg-nova-blue py-2 text-sm font-bold text-white shadow-lg shadow-nova-blue/30 transition-colors hover:bg-nova-blueLight">
+                        <span className="flex w-full items-center justify-center rounded-xl bg-nova-blue py-2 text-sm font-bold text-white shadow-lg shadow-nova-blue/30 transition-colors hover:bg-nova-blueLight">
                           Jogar Agora
                         </span>
                       </div>

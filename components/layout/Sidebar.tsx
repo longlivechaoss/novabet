@@ -69,7 +69,7 @@ export default function Sidebar({
   onOpenRoleta: _onOpenRoleta = () => undefined
 }: SidebarProps) {
   const pathname = usePathname();
-  const [cassinoAberto, setCassinoAberto] = useState(true);
+  const [cassinoAberto, setCassinoAberto] = useState(false);
   const [cassinoAoVivoAberto, setCassinoAoVivoAberto] = useState(false);
   const [idiomaAberto, setIdiomaAberto] = useState(false);
   const [idiomaAtivo, setIdiomaAtivo] = useState("Português");
@@ -79,7 +79,7 @@ export default function Sidebar({
 
   function renderContent() {
     return (
-      <div className="pb-6">
+      <div className="flex min-h-full flex-col pb-6">
         <div className="px-3 pt-3">
           <div className="rounded-[14px] border border-nova-border bg-nova-darkest p-3">
             <SidebarSearch />

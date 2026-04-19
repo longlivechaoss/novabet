@@ -18,14 +18,14 @@ export default function ChatSuporte() {
           <div className="flex items-center justify-between rounded-t-2xl bg-nova-blue px-4 py-3">
             <div>
               <p className="font-semibold text-white">💬 Suporte ao vivo</p>
-              <span className="mt-1 inline-flex rounded-full bg-nova-blue/20 px-2 py-0.5 text-[10px] font-bold text-nova-blueBright">
+              <span className="mt-1 inline-flex rounded-xl bg-nova-blue/20 px-2 py-0.5 text-[10px] font-bold text-nova-blueBright">
                 Online
               </span>
             </div>
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
+              className="flex h-8 w-8 items-center justify-center !rounded-full bg-white/15 text-white transition hover:bg-white/25"
             >
               ✕
             </button>
@@ -43,19 +43,19 @@ export default function ChatSuporte() {
             <div className="mt-4 flex flex-col gap-2">
               <button
                 type="button"
-                className="rounded-full border border-nova-border bg-nova-elevated px-3 py-2 text-left text-xs text-nova-text transition hover:border-nova-blue"
+                className="rounded-xl border border-nova-border bg-nova-elevated px-3 py-2 text-left text-xs text-nova-text transition hover:border-nova-blue"
               >
                 💰 Problema com depósito
               </button>
               <button
                 type="button"
-                className="rounded-full border border-nova-border bg-nova-elevated px-3 py-2 text-left text-xs text-nova-text transition hover:border-nova-blue"
+                className="rounded-xl border border-nova-border bg-nova-elevated px-3 py-2 text-left text-xs text-nova-text transition hover:border-nova-blue"
               >
                 🎁 Dúvida sobre bônus
               </button>
               <button
                 type="button"
-                className="rounded-full border border-nova-border bg-nova-elevated px-3 py-2 text-left text-xs text-nova-text transition hover:border-nova-blue"
+                className="rounded-xl border border-nova-border bg-nova-elevated px-3 py-2 text-left text-xs text-nova-text transition hover:border-nova-blue"
               >
                 📞 Falar com atendente
               </button>
@@ -63,7 +63,7 @@ export default function ChatSuporte() {
           </div>
 
           <div className="border-t border-nova-border p-4">
-            <div className="flex items-center gap-2 rounded-full border border-nova-border bg-nova-elevated px-3 py-2">
+            <div className="flex items-center gap-2 rounded-xl border border-nova-border bg-nova-elevated px-3 py-2">
               <input
                 type="text"
                 value={mensagem}
@@ -73,7 +73,7 @@ export default function ChatSuporte() {
               />
               <button
                 type="button"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-nova-blue text-white transition-colors hover:bg-nova-blueLight"
+                className="flex h-8 w-8 items-center justify-center !rounded-full bg-nova-blue text-white transition-colors hover:bg-nova-blueLight"
               >
                 →
               </button>
@@ -85,7 +85,7 @@ export default function ChatSuporte() {
       <button
         type="button"
         onClick={() => setIsOpen((current) => !current)}
-        className="fixed bottom-6 left-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-nova-blue text-2xl text-white shadow-lg shadow-nova-blue/30 transition hover:scale-110 hover:bg-nova-blueLight"
+        className="fixed bottom-6 left-6 z-50 flex h-12 w-12 items-center justify-center !rounded-full bg-nova-blue text-2xl text-white shadow-lg shadow-nova-blue/30 transition hover:scale-110 hover:bg-nova-blueLight"
       >
         💬
       </button>

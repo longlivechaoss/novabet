@@ -86,7 +86,7 @@ export default function PromocoesPage() {
                 key={filtro}
                 type="button"
                 onClick={() => setFiltroAtivo(filtro)}
-                className={`rounded-full px-5 py-2 text-sm transition-colors ${
+                className={`rounded-xl px-5 py-2 text-sm transition-colors ${
                   ativo
                     ? "bg-nova-blue text-white"
                     : "bg-nova-card text-nova-textMuted hover:bg-nova-card/40 hover:text-white"
@@ -119,7 +119,7 @@ export default function PromocoesPage() {
 
             <button
               type="button"
-              className="w-full rounded-lg bg-nova-blue py-2.5 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
+              className="w-full rounded-xl bg-nova-blue py-2.5 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
             >
               RESGATAR
             </button>

@@ -104,7 +104,7 @@ export default function MinhaContaPage() {
           </div>
           <button
             type="button"
-            className="mt-6 rounded-lg bg-nova-blue px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
+            className="mt-6 rounded-xl bg-nova-blue px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
           >
             SALVAR ALTERAÇÕES
           </button>
@@ -119,7 +119,7 @@ export default function MinhaContaPage() {
                 key={aba}
                 type="button"
                 onClick={() => setHistoricoAtivo(aba)}
-                className={`rounded-full px-4 py-2 text-sm ${
+                className={`rounded-xl px-4 py-2 text-sm ${
                   historicoAtivo === aba
                     ? "bg-nova-blue text-white"
                     : "bg-nova-card text-nova-textMuted"
@@ -160,7 +160,7 @@ export default function MinhaContaPage() {
             >
               <Image src="/images/jogos/ftg.webp" alt={nome} fill className="object-cover" />
               <div className="absolute bottom-0 left-0 right-0 p-3">
-                <div className="rounded-lg bg-black/60 px-2 py-1 text-center text-xs font-semibold text-white">
+                <div className="rounded-xl bg-black/60 px-2 py-1 text-center text-xs font-semibold text-white">
                   {nome}
                 </div>
               </div>
@@ -185,7 +185,7 @@ export default function MinhaContaPage() {
             </div>
             <button
               type="button"
-              className="mt-4 rounded-lg bg-nova-blue px-5 py-2 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
+              className="mt-4 rounded-xl bg-nova-blue px-5 py-2 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
             >
               Salvar senha
             </button>
@@ -200,12 +200,12 @@ export default function MinhaContaPage() {
               <button
                 type="button"
                 onClick={() => setTwoFactor((current) => !current)}
-                className={`flex h-8 w-16 items-center rounded-full px-1 transition ${
+                className={`flex h-8 w-16 items-center !rounded-full px-1 transition ${
                   twoFactor ? "bg-nova-blue" : "bg-nova-border"
                 }`}
               >
                 <span
-                  className={`h-6 w-6 rounded-full bg-white transition ${
+                  className={`h-6 w-6 !rounded-full bg-white transition ${
                     twoFactor ? "translate-x-8" : "translate-x-0"
                   }`}
                 />
@@ -234,7 +234,7 @@ export default function MinhaContaPage() {
             </p>
             <button
               type="button"
-              className="mt-4 rounded-lg bg-nova-ruby px-5 py-3 text-sm font-bold text-white transition hover:bg-red-400"
+              className="mt-4 rounded-xl bg-nova-ruby px-5 py-3 text-sm font-bold text-white transition hover:bg-red-400"
             >
               SOLICITAR AUTOEXCLUSÃO
             </button>

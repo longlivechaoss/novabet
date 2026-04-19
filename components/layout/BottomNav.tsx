@@ -78,10 +78,12 @@ export default function BottomNav() {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
+                    justifyContent: "flex-end",
                     flex: 1,
                     paddingBottom: "6px",
                     position: "relative",
-                    top: "-14px"
+                    top: "-14px",
+                    gap: "3px"
                   }}
                 >
                   <div
@@ -93,25 +95,24 @@ export default function BottomNav() {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      marginBottom: "4px",
+                      marginBottom: 0,
                       boxShadow: "0 0 0 3px #0D0F1E"
                     }}
                   >
                     <img
                       src={item.icon}
                       alt={item.label}
-                      style={{ width: "32px", height: "32px", objectFit: "contain" }}
+                      style={{ width: "28px", height: "28px", objectFit: "contain" }}
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = "none";
                       }}
                     />
                   </div>
                   <span
+                    className="mt-0 text-center text-[10px] leading-none"
                     style={{
-                      fontSize: "10px",
                       color: "rgba(255,255,255,0.45)",
-                      fontWeight: 400,
-                      lineHeight: 1
+                      fontWeight: 400
                     }}
                   >
                     {item.label}

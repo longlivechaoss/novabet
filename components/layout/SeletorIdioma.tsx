@@ -34,7 +34,7 @@ export default function SeletorIdioma() {
       <button
         type="button"
         onClick={() => setAberto((current) => !current)}
-        className="flex items-center gap-2 rounded-full border border-nova-blue/20 bg-nova-card px-3 py-2 text-xs font-semibold text-nova-text transition hover:border-nova-blueBright/50 hover:text-white"
+        className="flex items-center gap-2 rounded-xl border border-nova-blue/20 bg-nova-card px-3 py-2 text-xs font-semibold text-nova-text transition hover:border-nova-blueBright/50 hover:text-white"
       >
         <span>{ativo.flag}</span>
         <span className="hidden sm:inline">{ativo.id === "pt-BR" ? "PT-BR" : ativo.label}</span>
@@ -53,7 +53,7 @@ export default function SeletorIdioma() {
                   setAtivo(idioma);
                   setAberto(false);
                 }}
-                className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition ${
+                className={`flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm transition ${
                   ativoAtual
                     ? "bg-nova-blue/20 text-white"
                     : "text-nova-textMuted hover:bg-nova-card/20 hover:text-white"

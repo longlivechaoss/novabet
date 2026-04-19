@@ -28,6 +28,14 @@ export interface BannerLateral {
   gradient: string;
 }
 
+/** Carrossel da home (mobile) — ficheiros em /public/images/banners/ */
+export interface BannerMobile {
+  id: number;
+  src: string;
+  alt: string;
+  href: string;
+}
+
 export const jogosRecomendados: Jogo[] = [
   {
     id: 1,
@@ -76,12 +84,14 @@ export const jogosRecomendados: Jogo[] = [
 /** Alias da lista de jogos (mesmo conteúdo que `jogosRecomendados`) */
 export const jogos = jogosRecomendados;
 
-// TAMANHOS DOS BANNERS:
-// Banner principal (carrossel): 860 x 360 px (proporção 2.39:1)
-// Banners laterais: 380 x 170 px (proporção 2.23:1)
+// ---------------------------------------------------------------------------
+// BANNERS — edite os arrays abaixo (caminhos relativos a /public)
+// ---------------------------------------------------------------------------
+// Principal (desktop): upload 1720×720 → exibido ~860×360 | ficheiros em /public/images/
+// Laterais: 760×340 → exibido ~380×170
+// Mobile: 750×380 → /public/images/banners/
+// Formato: WebP ~85%
 //
-// Formato recomendado: WebP com qualidade 85
-// Salvar em: public/images/banners/
 export const banners: BannerPrincipal[] = [
   {
     id: 1,
@@ -124,6 +134,13 @@ export const bannersLaterais: BannerLateral[] = [
     alt: "Banner Lateral 2",
     gradient: "from-nova-card to-nova-elevated"
   }
+];
+
+export const bannersMobile: BannerMobile[] = [
+  { id: 1, src: "/images/banners/mobile-1.webp", alt: "Promoção 1", href: "/" },
+  { id: 2, src: "/images/banners/mobile-2.webp", alt: "Promoção 2", href: "/" },
+  { id: 3, src: "/images/banners/mobile-3.webp", alt: "Promoção 3", href: "/" },
+  { id: 4, src: "/images/banners/mobile-4.webp", alt: "Promoção 4", href: "/" }
 ];
 
 // BANNER PROMOCIONAL (horizontal longo):

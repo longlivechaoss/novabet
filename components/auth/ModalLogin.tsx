@@ -37,7 +37,7 @@ export default function ModalLogin({
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-sm text-white transition hover:bg-white/20"
+            className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center !rounded-full bg-white/10 text-sm text-white transition hover:bg-white/20"
           >
             ✕
           </button>
@@ -55,14 +55,14 @@ export default function ModalLogin({
             <input
               type="email"
               placeholder="E-mail"
-              className="w-full rounded-lg border border-nova-border bg-nova-card px-4 py-3 text-sm text-white placeholder:text-nova-textMuted focus:border-nova-blue focus:outline-none focus:ring-1 focus:ring-nova-blue/30"
+              className="w-full rounded-xl border border-nova-border bg-nova-card px-4 py-3 text-sm text-white placeholder:text-nova-textMuted focus:border-nova-blue focus:outline-none focus:ring-1 focus:ring-nova-blue/30"
             />
 
             <div className="relative">
               <input
                 type={senhaVisivel ? "text" : "password"}
                 placeholder="Senha"
-                className="w-full rounded-lg border border-nova-border bg-nova-card px-4 py-3 pr-12 text-sm text-white placeholder:text-nova-textMuted focus:border-nova-blue focus:outline-none focus:ring-1 focus:ring-nova-blue/30"
+                className="w-full rounded-xl border border-nova-border bg-nova-card px-4 py-3 pr-12 text-sm text-white placeholder:text-nova-textMuted focus:border-nova-blue focus:outline-none focus:ring-1 focus:ring-nova-blue/30"
               />
               <button
                 type="button"
@@ -86,7 +86,7 @@ export default function ModalLogin({
           <button
             type="button"
             onClick={onLoginSuccess}
-            className="mt-4 w-full rounded-lg bg-nova-blue py-3 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
+            className="mt-4 w-full rounded-xl bg-nova-blue py-3 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
           >
             ENTRAR
           </button>
@@ -100,7 +100,7 @@ export default function ModalLogin({
           <div className="flex gap-3">
             <button
               type="button"
-              className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-nova-border bg-nova-card py-2.5 text-sm font-semibold text-white transition hover:border-nova-blue"
+              className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-nova-border bg-nova-card py-2.5 text-sm font-semibold text-white transition hover:border-nova-blue"
             >
               <span className="text-lg font-black text-nova-blueBright">
                 G
@@ -109,7 +109,7 @@ export default function ModalLogin({
             </button>
             <button
               type="button"
-              className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-nova-border bg-nova-card py-2.5 text-sm font-semibold text-white transition hover:border-nova-blue"
+              className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-nova-border bg-nova-card py-2.5 text-sm font-semibold text-white transition hover:border-nova-blue"
             >
               <span className="text-base">✈</span>
               Telegram

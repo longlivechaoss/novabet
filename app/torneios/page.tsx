@@ -111,7 +111,7 @@ export default function TorneiosPage() {
               key={aba}
               type="button"
               onClick={() => setAbaAtiva(aba)}
-              className={`rounded-full px-5 py-2 text-sm transition-colors ${
+              className={`rounded-xl px-5 py-2 text-sm transition-colors ${
                 abaAtiva === aba
                   ? "bg-nova-blue text-white"
                   : "bg-nova-card text-nova-textMuted hover:bg-nova-card/40 hover:text-white"
@@ -136,7 +136,7 @@ export default function TorneiosPage() {
             <p className="mt-3 text-sm font-semibold text-nova-blueBright">Termina em 02d 14h 38m</p>
             <button
               type="button"
-              className="mt-6 rounded-full bg-nova-blue px-8 py-3 font-bold text-white transition-colors hover:bg-nova-blueLight"
+              className="mt-6 rounded-xl bg-nova-blue px-8 py-3 font-bold text-white transition-colors hover:bg-nova-blueLight"
             >
               PARTICIPAR AGORA
             </button>
@@ -202,7 +202,7 @@ export default function TorneiosPage() {
 
               <button
                 type="button"
-                className="w-full rounded-lg bg-nova-blue py-3 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
+                className="w-full rounded-xl bg-nova-blue py-3 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
               >
                 Participar
               </button>

@@ -82,7 +82,7 @@ export default function ModalDeposito({ onClose }: ModalDepositoProps) {
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-sm text-white transition hover:bg-white/20"
+            className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center !rounded-full bg-white/10 text-sm text-white transition hover:bg-white/20"
           >
             ✕
           </button>
@@ -107,7 +107,7 @@ export default function ModalDeposito({ onClose }: ModalDepositoProps) {
                   key={valorRapido}
                   type="button"
                   onClick={() => setValor(valorRapido)}
-                  className="rounded-lg border border-nova-border bg-nova-card py-2 text-sm text-white transition hover:border-nova-blue"
+                  className="rounded-xl border border-nova-border bg-nova-card py-2 text-sm text-white transition hover:border-nova-blue"
                 >
                   {formatarMoeda(valorRapido)}
                 </button>
@@ -151,7 +151,7 @@ export default function ModalDeposito({ onClose }: ModalDepositoProps) {
             <select
               value={bonus}
               onChange={(event) => setBonus(event.target.value)}
-              className="w-full rounded-lg border border-nova-border bg-nova-elevated px-4 py-3 text-sm text-white focus:border-nova-blue focus:outline-none"
+              className="w-full rounded-xl border border-nova-border bg-nova-elevated px-4 py-3 text-sm text-white focus:border-nova-blue focus:outline-none"
             >
               <option>Nenhum</option>
               <option>Bônus Boas-vindas 200%</option>

@@ -32,7 +32,7 @@ export default function CheckInDiario() {
           type="button"
           onClick={handleCheckIn}
           disabled={ultimoDiaConcluido >= 7}
-          className="rounded-full bg-nova-blue px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight disabled:cursor-not-allowed disabled:opacity-60"
+          className="rounded-xl bg-nova-blue px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight disabled:cursor-not-allowed disabled:opacity-60"
         >
           {ultimoDiaConcluido >= 7 ? "SÉRIE COMPLETA" : "FAZER CHECK-IN"}
         </button>
@@ -47,7 +47,7 @@ export default function CheckInDiario() {
           return (
             <div key={dia} className="flex flex-col items-center gap-2">
               <div
-                className={`flex h-14 w-14 items-center justify-center rounded-full text-sm font-bold transition ${
+                className={`flex h-14 w-14 items-center justify-center !rounded-full text-sm font-bold transition ${
                   concluido
                     ? "bg-nova-blue text-white"
                     : disponivel

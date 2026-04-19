@@ -53,7 +53,7 @@ export default function ModalSaque({ onClose }: ModalSaqueProps) {
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-sm text-white transition hover:bg-white/20"
+            className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center !rounded-full bg-white/10 text-sm text-white transition hover:bg-white/20"
           >
             ✕
           </button>
@@ -91,7 +91,7 @@ export default function ModalSaque({ onClose }: ModalSaqueProps) {
                   key={item.label}
                   type="button"
                   onClick={() => setValor(item.value)}
-                  className="rounded-lg border border-nova-border bg-nova-card px-4 py-2 text-sm text-white transition hover:border-nova-blue"
+                  className="rounded-xl border border-nova-border bg-nova-card px-4 py-2 text-sm text-white transition hover:border-nova-blue"
                 >
                   {item.label}
                 </button>
@@ -143,7 +143,7 @@ export default function ModalSaque({ onClose }: ModalSaqueProps) {
               <select
                 value={tipoChave}
                 onChange={(event) => setTipoChave(event.target.value)}
-                className="w-full rounded-lg border border-nova-border bg-nova-elevated px-4 py-3 text-sm text-white focus:border-nova-blue focus:outline-none"
+                className="w-full rounded-xl border border-nova-border bg-nova-elevated px-4 py-3 text-sm text-white focus:border-nova-blue focus:outline-none"
               >
                 <option>CPF</option>
                 <option>E-mail</option>
@@ -155,7 +155,7 @@ export default function ModalSaque({ onClose }: ModalSaqueProps) {
                 value={chavePix}
                 onChange={(event) => setChavePix(event.target.value)}
                 placeholder="Digite sua chave PIX"
-                className="w-full rounded-lg border border-nova-border bg-nova-elevated px-4 py-3 text-sm text-white placeholder:text-nova-textMuted focus:border-nova-blue focus:outline-none"
+                className="w-full rounded-xl border border-nova-border bg-nova-elevated px-4 py-3 text-sm text-white placeholder:text-nova-textMuted focus:border-nova-blue focus:outline-none"
               />
             </div>
           ) : null}

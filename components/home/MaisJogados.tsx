@@ -50,13 +50,16 @@ export default function MaisJogados({ titulo }: MaisJogadosProps) {
 
   return (
     <motion.div
-      className="mb-2 space-y-2"
+      className="mb-2 space-y-2 w-full"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2, margin: "-80px 0px 0px 0px" }}
       transition={{ duration: 0.6 }}
     >
-      <div className="mb-3 flex items-center justify-between">
+      <div
+        className="flex items-center justify-between mb-3"
+        style={{ width: "100%", display: "flex", justifyContent: "space-between" }}
+      >
         <div className="flex items-center gap-2">
           <span className="text-sm font-bold text-white md:text-base">{titulo}</span>
         </div>
@@ -65,7 +68,7 @@ export default function MaisJogados({ titulo }: MaisJogadosProps) {
           <button
             type="button"
             onClick={goPrev}
-            className="flex h-7 w-7 items-center justify-center rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
+            className="flex h-7 w-7 items-center justify-center !rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
             style={{ fontSize: "16px" }}
             aria-label="Anterior"
           >
@@ -74,7 +77,7 @@ export default function MaisJogados({ titulo }: MaisJogadosProps) {
           <button
             type="button"
             onClick={goNext}
-            className="flex h-7 w-7 items-center justify-center rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
+            className="flex h-7 w-7 items-center justify-center !rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
             style={{ fontSize: "16px" }}
             aria-label="Próximo"
           >
@@ -82,7 +85,7 @@ export default function MaisJogados({ titulo }: MaisJogadosProps) {
           </button>
           <Link
             href="/jogos"
-            className="flex items-center gap-1 rounded-lg bg-nova-blue px-3 py-1 text-xs font-semibold text-white transition hover:bg-nova-blueLight"
+            className="flex items-center gap-1 rounded-xl bg-nova-blue px-3 py-1 text-xs font-semibold text-white transition hover:bg-nova-blueLight"
           >
             Ver todos <span>›</span>
           </Link>

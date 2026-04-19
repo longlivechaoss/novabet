@@ -65,7 +65,7 @@ export default function JogoResponsavelPage() {
               <p className="mt-2 text-sm text-nova-textMuted">{item.descricao}</p>
               <button
                 type="button"
-                className="mt-4 rounded-lg bg-nova-blue px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
+                className="mt-4 rounded-xl bg-nova-blue px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
               >
                 Solicitar
               </button>
@@ -83,7 +83,7 @@ export default function JogoResponsavelPage() {
               <input
                 type="text"
                 placeholder="R$ 0,00"
-                className="w-full rounded-lg border border-nova-card bg-nova-elevated px-4 py-3 text-sm text-white placeholder:text-nova-textMuted focus:border-nova-blue focus:outline-none"
+                className="w-full rounded-xl border border-nova-card bg-nova-elevated px-4 py-3 text-sm text-white placeholder:text-nova-textMuted focus:border-nova-blue focus:outline-none"
               />
             </label>
           ))}

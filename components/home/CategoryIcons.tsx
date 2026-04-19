@@ -29,7 +29,7 @@ export default function CategoryIcons() {
             >
               <button type="button" className="group flex min-w-[88px] flex-col items-center gap-2">
                 <div
-                  className={`flex h-14 w-14 items-center justify-center rounded-full border text-2xl transition duration-300 group-hover:scale-105 group-hover:border-nova-blue ${
+                  className={`flex h-14 w-14 items-center justify-center !rounded-full border text-2xl transition duration-300 group-hover:scale-105 group-hover:border-nova-blue ${
                     ativo
                       ? "border-nova-blue bg-nova-elevated"
                       : "border-nova-border bg-nova-card"

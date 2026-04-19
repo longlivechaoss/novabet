@@ -3,7 +3,7 @@ export default function AppBanner() {
     <section className="mt-8 overflow-hidden rounded-2xl bg-gradient-to-r from-nova-bg via-nova-card to-nova-blue/50 p-8">
       <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-xl">
-          <span className="inline-flex rounded-full border border-nova-blue/30 bg-white/10 px-3 py-1 text-xs font-bold text-nova-text">
+          <span className="inline-flex rounded-xl border border-nova-blue/30 bg-white/10 px-3 py-1 text-xs font-bold text-nova-text">
             📱 APP NOVABET
           </span>
           <h2 className="mt-4 text-3xl font-black text-white">Leve o cassino no seu bolso</h2>

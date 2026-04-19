@@ -136,11 +136,11 @@ input {
 
 @keyframes tickerScroll {
   from {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
 }
 
@@ -191,4 +191,11 @@ input {
   height: 20px;
   fill: white;
   margin-left: 3px;
+}
+
+button,
+a[class*="rounded-full"],
+a[class*="rounded-lg"],
+a[class*="rounded-xl"] {
+  border-radius: 10px !important;
 }

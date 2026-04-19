@@ -72,7 +72,7 @@ export default function ModalCadastro({ onClose }: Props) {
                 }`}
                 onClick={() => setBonusAtivo('cassino')}
               >
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-nova-blue text-xl">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-nova-blue text-xl">
                   🎰
                 </div>
                 <div className="flex-1">
@@ -80,12 +80,12 @@ export default function ModalCadastro({ onClose }: Props) {
                   <p className="text-lg font-black leading-tight text-white">200%</p>
                 </div>
                 <div
-                  className={`flex h-6 w-10 items-center rounded-full px-1 transition-colors ${
+                  className={`flex h-6 w-10 items-center rounded-xl px-1 transition-colors ${
                     bonusAtivo === 'cassino' ? 'bg-nova-blue' : 'bg-nova-border'
                   }`}
                 >
                   <div
-                    className={`h-4 w-4 rounded-full bg-white transition-transform ${
+                    className={`h-4 w-4 !rounded-full bg-white transition-transform ${
                       bonusAtivo === 'cassino' ? 'translate-x-4' : 'translate-x-0'
                     }`}
                   />
@@ -100,7 +100,7 @@ export default function ModalCadastro({ onClose }: Props) {
                 }`}
                 onClick={() => setBonusAtivo('esportes')}
               >
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-nova-border text-xl">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-nova-border text-xl">
                   ⚽
                 </div>
                 <div className="flex-1">
@@ -108,12 +108,12 @@ export default function ModalCadastro({ onClose }: Props) {
                   <p className="text-lg font-black leading-tight text-nova-text">R$50</p>
                 </div>
                 <div
-                  className={`flex h-6 w-10 items-center rounded-full px-1 transition-colors ${
+                  className={`flex h-6 w-10 items-center rounded-xl px-1 transition-colors ${
                     bonusAtivo === 'esportes' ? 'bg-nova-blue' : 'bg-nova-border'
                   }`}
                 >
                   <div
-                    className={`h-4 w-4 rounded-full bg-white transition-transform ${
+                    className={`h-4 w-4 !rounded-full bg-white transition-transform ${
                       bonusAtivo === 'esportes' ? 'translate-x-4' : 'translate-x-0'
                     }`}
                   />
@@ -131,7 +131,7 @@ export default function ModalCadastro({ onClose }: Props) {
           <div className="relative flex-1 overflow-y-auto bg-nova-elevated p-8">
             <button
               onClick={onClose}
-              className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-sm text-white transition-colors hover:bg-white/20"
+              className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center !rounded-full bg-white/10 text-sm text-white transition-colors hover:bg-white/20"
             >
               ✕
             </button>
@@ -169,13 +169,13 @@ export default function ModalCadastro({ onClose }: Props) {
                   <input
                     type="email"
                     placeholder="E-mail"
-                    className="w-full rounded-lg border border-nova-border bg-nova-card px-4 py-3 text-sm text-white placeholder-slate-500 transition-all duration-200 focus:border-nova-blue focus:outline-none focus:ring-1 focus:ring-nova-blue/30"
+                    className="w-full rounded-xl border border-nova-border bg-nova-card px-4 py-3 text-sm text-white placeholder-slate-500 transition-all duration-200 focus:border-nova-blue focus:outline-none focus:ring-1 focus:ring-nova-blue/30"
                   />
                   <div className="relative">
                     <input
                       type={senhaVisivel ? 'text' : 'password'}
                       placeholder="Senha"
-                      className="w-full rounded-lg border border-nova-border bg-nova-card px-4 py-3 pr-12 text-sm text-white placeholder-slate-500 transition-all duration-200 focus:border-nova-blue focus:outline-none focus:ring-1 focus:ring-nova-blue/30"
+                      className="w-full rounded-xl border border-nova-border bg-nova-card px-4 py-3 pr-12 text-sm text-white placeholder-slate-500 transition-all duration-200 focus:border-nova-blue focus:outline-none focus:ring-1 focus:ring-nova-blue/30"
                     />
                     <button
                       type="button"
@@ -189,7 +189,7 @@ export default function ModalCadastro({ onClose }: Props) {
               ) : (
                 <>
                   <div className="flex gap-2">
-                    <select className="w-28 rounded-lg border border-nova-border bg-nova-card px-3 py-3 text-sm text-white focus:border-nova-blue focus:outline-none">
+                    <select className="w-28 rounded-xl border border-nova-border bg-nova-card px-3 py-3 text-sm text-white focus:border-nova-blue focus:outline-none">
                       <option>🇧🇷 +55</option>
                       <option>🇺🇸 +1</option>
                       <option>🇵🇹 +351</option>
@@ -197,25 +197,25 @@ export default function ModalCadastro({ onClose }: Props) {
                     <input
                       type="tel"
                       placeholder="Número de telefone"
-                      className="flex-1 rounded-lg border border-nova-border bg-nova-card px-4 py-3 text-sm text-white placeholder-slate-500 transition-all duration-200 focus:border-nova-blue focus:outline-none focus:ring-1 focus:ring-nova-blue/30"
+                      className="flex-1 rounded-xl border border-nova-border bg-nova-card px-4 py-3 text-sm text-white placeholder-slate-500 transition-all duration-200 focus:border-nova-blue focus:outline-none focus:ring-1 focus:ring-nova-blue/30"
                     />
                   </div>
                   <input
                     type="password"
                     placeholder="Senha"
-                    className="w-full rounded-lg border border-nova-border bg-nova-card px-4 py-3 text-sm text-white placeholder-slate-500 transition-all duration-200 focus:border-nova-blue focus:outline-none focus:ring-1 focus:ring-nova-blue/30"
+                    className="w-full rounded-xl border border-nova-border bg-nova-card px-4 py-3 text-sm text-white placeholder-slate-500 transition-all duration-200 focus:border-nova-blue focus:outline-none focus:ring-1 focus:ring-nova-blue/30"
                   />
                 </>
               )}
 
               <div className="flex gap-3">
-                <select className="flex-1 rounded-lg border border-nova-border bg-nova-card px-3 py-3 text-sm text-white transition-all duration-200 focus:border-nova-blue focus:outline-none">
+                <select className="flex-1 rounded-xl border border-nova-border bg-nova-card px-3 py-3 text-sm text-white transition-all duration-200 focus:border-nova-blue focus:outline-none">
                   <option>🇧🇷 Brasil</option>
                   <option>🇺🇸 Estados Unidos</option>
                   <option>🇵🇹 Portugal</option>
                   <option>🇦🇷 Argentina</option>
                 </select>
-                <select className="w-28 rounded-lg border border-nova-border bg-nova-card px-3 py-3 text-sm text-white transition-all duration-200 focus:border-nova-blue focus:outline-none">
+                <select className="w-28 rounded-xl border border-nova-border bg-nova-card px-3 py-3 text-sm text-white transition-all duration-200 focus:border-nova-blue focus:outline-none">
                   <option>BRL</option>
                   <option>USD</option>
                   <option>EUR</option>
@@ -251,7 +251,7 @@ export default function ModalCadastro({ onClose }: Props) {
               </label>
             </div>
 
-            <button className="mt-5 w-full rounded-lg bg-nova-blue py-3 text-base font-bold text-white shadow-lg shadow-nova-blue/30 transition-colors duration-200 hover:bg-nova-blueLight active:scale-[0.98]">
+            <button className="mt-5 w-full rounded-xl bg-nova-blue py-3 text-base font-bold text-white shadow-lg shadow-nova-blue/30 transition-colors duration-200 hover:bg-nova-blueLight active:scale-[0.98]">
               CRIAR CONTA
             </button>
 
@@ -262,13 +262,13 @@ export default function ModalCadastro({ onClose }: Props) {
             </div>
 
             <div className="flex gap-3">
-              <button className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-nova-border bg-nova-card py-2.5 text-sm font-semibold text-white transition-colors hover:border-nova-blue">
+              <button className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-nova-border bg-nova-card py-2.5 text-sm font-semibold text-white transition-colors hover:border-nova-blue">
                 <span className="text-lg font-black text-nova-blueBright">
                   G
                 </span>
                 Google
               </button>
-              <button className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-nova-border bg-nova-card py-2.5 text-sm font-semibold text-white transition-colors hover:border-nova-blue">
+              <button className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-nova-border bg-nova-card py-2.5 text-sm font-semibold text-white transition-colors hover:border-nova-blue">
                 <span className="text-base">✈</span>
                 Telegram
               </button>

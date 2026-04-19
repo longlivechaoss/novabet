@@ -26,7 +26,7 @@ export default function AgeVerification() {
           <button
             type="button"
             onClick={() => setVisivel(false)}
-            className="flex-1 rounded-lg bg-nova-blue py-3 font-bold text-white transition-colors hover:bg-nova-blueLight"
+            className="flex-1 rounded-xl bg-nova-blue py-3 font-bold text-white transition-colors hover:bg-nova-blueLight"
           >
             TENHO 18+
           </button>
@@ -35,7 +35,7 @@ export default function AgeVerification() {
             onClick={() => {
               window.location.href = "https://google.com";
             }}
-            className="flex-1 rounded-lg border border-nova-border py-3 font-bold text-nova-text transition hover:bg-white/5"
+            className="flex-1 rounded-xl border border-nova-border py-3 font-bold text-nova-text transition hover:bg-white/5"
           >
             SOU MENOR
           </button>

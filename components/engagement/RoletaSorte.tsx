@@ -109,7 +109,7 @@ export default function RoletaSorte({ onClose }: RoletaSorteProps) {
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-sm text-white transition hover:bg-white/20"
+            className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center !rounded-full bg-white/10 text-sm text-white transition hover:bg-white/20"
           >
             ✕
           </button>
@@ -161,7 +161,7 @@ export default function RoletaSorte({ onClose }: RoletaSorteProps) {
             type="button"
             onClick={girarRoleta}
             disabled={jaGirou || girando}
-            className="mt-6 rounded-full bg-nova-blue px-10 py-4 font-bold text-white transition-colors hover:bg-nova-blueLight disabled:cursor-not-allowed disabled:opacity-60"
+            className="mt-6 rounded-xl bg-nova-blue px-10 py-4 font-bold text-white transition-colors hover:bg-nova-blueLight disabled:cursor-not-allowed disabled:opacity-60"
           >
             {girando ? "GIRANDO..." : "GIRAR AGORA"}
           </button>

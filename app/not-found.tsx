@@ -24,7 +24,7 @@ export default function NotFoundPage() {
         onClick={() => {
           window.location.href = "/";
         }}
-        className="mt-8 rounded-full bg-nova-blue px-10 py-4 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
+        className="mt-8 rounded-xl bg-nova-blue px-10 py-4 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
       >
         VOLTAR AO INÍCIO
       </button>

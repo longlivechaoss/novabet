@@ -428,7 +428,7 @@ export default function EsportesPage() {
           <button
             type="button"
             onClick={() => setPainelAberto(false)}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-sm text-white transition hover:bg-white/20"
+            className="flex h-8 w-8 items-center justify-center !rounded-full bg-white/10 text-sm text-white transition hover:bg-white/20"
           >
             ✕
           </button>
@@ -445,7 +445,7 @@ export default function EsportesPage() {
             </div>
           ) : (
             apostas.map((aposta) => (
-              <div key={aposta.eventoId} className="mb-2 rounded-lg bg-nova-elevated p-3">
+              <div key={aposta.eventoId} className="mb-2 rounded-xl bg-nova-elevated p-3">
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <p className="text-xs text-nova-textMuted">{aposta.jogo}</p>
@@ -468,7 +468,7 @@ export default function EsportesPage() {
         </div>
 
         <div className="border-t border-nova-card px-5 py-4">
-          <div className="rounded-lg bg-nova-card p-1">
+          <div className="rounded-xl bg-nova-card p-1">
             <div className="flex gap-1">
               {(["SIMPLES", "MÚLTIPLA", "SISTEMA"] as TipoBoletim[]).map((tipo) => (
                 <button
@@ -496,7 +496,7 @@ export default function EsportesPage() {
                 const digits = event.target.value.replace(/\D/g, "");
                 setValorAposta(digits ? Number(digits) / 100 : 0);
               }}
-              className="mt-2 w-full rounded-lg border border-nova-card bg-nova-elevated px-3 py-2 text-sm text-white focus:border-nova-blue focus:outline-none"
+              className="mt-2 w-full rounded-xl border border-nova-card bg-nova-elevated px-3 py-2 text-sm text-white focus:border-nova-blue focus:outline-none"
             />
             <div className="mt-2 flex gap-2">
               {[10, 50, 100].map((valor) => (
@@ -504,7 +504,7 @@ export default function EsportesPage() {
                   key={valor}
                   type="button"
                   onClick={() => setValorAposta(valor)}
-                  className="flex-1 rounded-lg border border-nova-card bg-nova-card py-2 text-xs font-semibold text-white transition hover:border-nova-blue"
+                  className="flex-1 rounded-xl border border-nova-card bg-nova-card py-2 text-xs font-semibold text-white transition hover:border-nova-blue"
                 >
                   {formatarMoeda(valor)}
                 </button>
@@ -526,7 +526,7 @@ export default function EsportesPage() {
           <button
             type="button"
             disabled={apostas.length === 0}
-            className={`mt-4 w-full rounded-lg py-3 font-bold transition ${
+            className={`mt-4 w-full rounded-xl py-3 font-bold transition ${
               apostas.length === 0
                 ? "cursor-not-allowed bg-nova-border text-nova-textMuted"
                 : "bg-nova-blue text-white hover:bg-nova-blueLight"
@@ -557,7 +557,7 @@ export default function EsportesPage() {
                     key={item.id}
                     type="button"
                     onClick={() => handleTopoClick(item)}
-                    className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border-b-2 text-2xl transition-all ${
+                    className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-b-2 text-2xl transition-all ${
                       ativo
                         ? "border-nova-blue bg-nova-blue/30 opacity-100"
                         : "border-transparent opacity-60 hover:bg-nova-card/30 hover:opacity-100"
@@ -577,7 +577,7 @@ export default function EsportesPage() {
 
             <button
               type="button"
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg text-2xl opacity-60 transition-all hover:bg-nova-card/30 hover:opacity-100"
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-2xl opacity-60 transition-all hover:bg-nova-card/30 hover:opacity-100"
             >
               🔍
             </button>
@@ -593,7 +593,7 @@ export default function EsportesPage() {
                 key={aba}
                 type="button"
                 onClick={() => setAbaAtiva(aba)}
-                className={`rounded-lg border px-5 py-2.5 text-sm font-semibold transition-all ${
+                className={`rounded-xl border px-5 py-2.5 text-sm font-semibold transition-all ${
                   ativa
                     ? "border-nova-blue/50 bg-nova-blue/30 text-white"
                     : "border-nova-card bg-nova-card text-nova-textMuted hover:text-white"
@@ -634,7 +634,7 @@ export default function EsportesPage() {
                   setEsporteAtivo(item.id);
                   setTopoAtivo(item.id);
                 }}
-                className={`flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition ${
+                className={`flex shrink-0 items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition ${
                   ativo
                     ? "bg-nova-blue text-white"
                     : "border border-nova-card bg-nova-card text-nova-textMuted hover:text-white"
@@ -684,7 +684,7 @@ export default function EsportesPage() {
                   {[evento.time1, evento.time2].map((time) => (
                     <div key={time.nome} className="flex items-center gap-2">
                       <div
-                        className={`flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold text-white ${coresBrasao[time.nome] ?? "bg-nova-card"}`}
+                        className={`flex h-6 w-6 items-center justify-center !rounded-full text-[10px] font-bold text-white ${coresBrasao[time.nome] ?? "bg-nova-card"}`}
                       >
                         {obterIniciais(time.nome)}
                       </div>
@@ -712,7 +712,7 @@ export default function EsportesPage() {
                             key={odd.chave}
                             type="button"
                             onClick={() => selecionarOdd(evento, odd.chave, odd.odd)}
-                            className={`rounded-lg border py-2 transition ${
+                            className={`rounded-xl border py-2 transition ${
                               selecionado
                                 ? "border-nova-blueBright bg-nova-blue"
                                 : "border-transparent bg-nova-card hover:border-nova-blue hover:bg-nova-card/30"
@@ -770,7 +770,7 @@ export default function EsportesPage() {
           type="button"
           whileHover={{ scale: 1.05 }}
           onClick={() => setPainelAberto((current) => !current)}
-          className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-full bg-nova-blue px-6 py-3 text-white shadow-xl shadow-nova-blue/30 transition-colors hover:bg-nova-blueLight"
+          className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-xl bg-nova-blue px-6 py-3 text-white shadow-xl shadow-nova-blue/30 transition-colors hover:bg-nova-blueLight"
         >
           <span className="font-bold">🎟️ Boletim</span>
           <span className="h-6 w-px bg-white/20" />

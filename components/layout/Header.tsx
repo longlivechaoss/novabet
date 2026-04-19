@@ -80,7 +80,7 @@ export default function Header({
               type="button"
               aria-label="Abrir menu"
               onClick={onToggleSidebar}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-nova-border bg-nova-card text-lg text-nova-text transition hover:border-nova-blue hover:bg-nova-elevated"
+              className="flex h-9 w-9 shrink-0 items-center justify-center !rounded-full border border-nova-border bg-nova-card text-lg text-nova-text transition hover:border-nova-blue hover:bg-nova-elevated"
             >
               ☰
             </button>
@@ -99,7 +99,7 @@ export default function Header({
                 <button
                   type="button"
                   onClick={onOpenCadastro}
-                  className="whitespace-nowrap rounded-full bg-nova-blue px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-nova-blueLight"
+                  className="whitespace-nowrap rounded-xl bg-nova-blue px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-nova-blueLight"
                 >
                   Registre-se
                 </button>
@@ -107,7 +107,7 @@ export default function Header({
               <button
                 type="button"
                 onClick={onOpenLogin}
-                className="whitespace-nowrap rounded-full border border-nova-border px-3 py-1.5 text-xs font-medium text-white transition hover:border-nova-blue hover:bg-nova-card"
+                className="whitespace-nowrap rounded-xl border border-nova-border px-3 py-1.5 text-xs font-medium text-white transition hover:border-nova-blue hover:bg-nova-card"
               >
                 Entrar
               </button>
@@ -117,7 +117,7 @@ export default function Header({
               <button
                 type="button"
                 onClick={onOpenDeposito}
-                className="rounded-full bg-nova-blue px-2.5 py-1.5 text-[10px] font-bold text-white"
+                className="rounded-xl bg-nova-blue px-2.5 py-1.5 text-[10px] font-bold text-white"
               >
                 DEPOSITAR
               </button>
@@ -125,7 +125,7 @@ export default function Header({
                 <button
                   type="button"
                   onClick={() => setAvatarMenuOpen((current) => !current)}
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-nova-blue text-sm font-bold text-white"
+                  className="flex h-8 w-8 items-center justify-center !rounded-full bg-nova-blue text-sm font-bold text-white"
                   aria-label="Abrir menu do perfil"
                 >
                   T
@@ -165,7 +165,7 @@ export default function Header({
               type="button"
               aria-label="Abrir menu"
               onClick={onToggleSidebar}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-nova-border bg-nova-card text-lg text-nova-text transition hover:border-nova-blue hover:bg-nova-elevated"
+              className="flex h-9 w-9 shrink-0 items-center justify-center !rounded-full border border-nova-border bg-nova-card text-lg text-nova-text transition hover:border-nova-blue hover:bg-nova-elevated"
             >
               ☰
             </button>
@@ -173,11 +173,11 @@ export default function Header({
 
           <div className="min-w-0 shrink">{logo}</div>
 
-          <div className="ml-1 flex min-w-0 items-center gap-0 rounded-full border border-nova-border bg-nova-card p-1">
+          <div className="ml-1 flex min-w-0 items-center gap-0 rounded-xl border border-nova-border bg-nova-card p-1">
             <button
               type="button"
               onClick={() => router.push("/")}
-              className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold transition-all sm:px-4 sm:text-sm ${
+              className={`flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-semibold transition-all sm:px-4 sm:text-sm ${
                 modoAtivo === "casino"
                   ? "bg-nova-elevated text-white"
                   : "text-nova-textMuted hover:text-white"
@@ -194,7 +194,7 @@ export default function Header({
             <button
               type="button"
               onClick={() => router.push("/esportes")}
-              className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold transition-all sm:px-4 sm:text-sm ${
+              className={`flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-semibold transition-all sm:px-4 sm:text-sm ${
                 modoAtivo === "sport"
                   ? "bg-nova-elevated text-white"
                   : "text-nova-textMuted hover:text-white"
@@ -227,7 +227,7 @@ export default function Header({
                 <button
                   type="button"
                   onClick={onOpenCadastro}
-                  className="whitespace-nowrap rounded-full bg-nova-blue px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-nova-blueLight md:px-5 md:py-2 md:text-sm"
+                  className="whitespace-nowrap rounded-xl bg-nova-blue px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-nova-blueLight md:px-5 md:py-2 md:text-sm"
                 >
                   Registre-se
                 </button>
@@ -235,7 +235,7 @@ export default function Header({
               <button
                 type="button"
                 onClick={onOpenLogin}
-                className="whitespace-nowrap rounded-full border border-nova-border px-3 py-1.5 text-xs font-medium text-white transition hover:border-nova-blue hover:bg-nova-card md:px-4 md:py-2 md:text-sm"
+                className="whitespace-nowrap rounded-xl border border-nova-border px-3 py-1.5 text-xs font-medium text-white transition hover:border-nova-blue hover:bg-nova-card md:px-4 md:py-2 md:text-sm"
               >
                 Entrar
               </button>
@@ -243,14 +243,14 @@ export default function Header({
           ) : (
             <>
               <div className="hidden items-center gap-2 md:flex">
-                <div className="rounded-full border border-green-700/40 bg-green-900/40 px-4 py-2 text-sm font-bold text-nova-green">
+                <div className="rounded-xl border border-green-700/40 bg-green-900/40 px-4 py-2 text-sm font-bold text-nova-green">
                   💰 R$ 1.250,00
                 </div>
 
                 <button
                   type="button"
                   onClick={onOpenSaque}
-                  className="rounded-full border border-nova-border bg-nova-card px-5 py-2 text-sm font-bold text-nova-blueBright transition hover:border-nova-blue hover:bg-nova-elevated"
+                  className="rounded-xl border border-nova-border bg-nova-card px-5 py-2 text-sm font-bold text-nova-blueBright transition hover:border-nova-blue hover:bg-nova-elevated"
                 >
                   Sacar
                 </button>
@@ -258,7 +258,7 @@ export default function Header({
                 <button
                   type="button"
                   onClick={onOpenDeposito}
-                  className="rounded-full bg-nova-blue px-5 py-2 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
+                  className="rounded-xl bg-nova-blue px-5 py-2 text-sm font-bold text-white transition-colors hover:bg-nova-blueLight"
                 >
                   DEPOSITAR
                 </button>
@@ -270,7 +270,7 @@ export default function Header({
                 <button
                   type="button"
                   onClick={() => setAvatarMenuOpen((current) => !current)}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-nova-blue text-sm font-bold text-white transition hover:bg-nova-blue"
+                  className="flex h-9 w-9 items-center justify-center !rounded-full bg-nova-blue text-sm font-bold text-white transition hover:bg-nova-blue"
                   aria-label="Abrir menu do perfil"
                 >
                   T
