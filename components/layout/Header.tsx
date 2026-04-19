@@ -56,14 +56,17 @@ export default function Header({
 
   const logo = (
     <Link href="/" aria-label="NovaBet">
-      <motion.img
-        initial={{ opacity: 0, x: -20 }}
+      <motion.div
+        initial={{ opacity: 0, x: -12 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-        src="/images/logo-novabet.webp"
-        alt="NovaBet"
-        className="h-5 w-auto object-contain md:h-6"
-      />
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        <img
+          src="/images/logo-novabet.webp"
+          alt="NovaBet"
+          className="h-5 w-auto object-contain md:h-6"
+        />
+      </motion.div>
     </Link>
   );
 
@@ -88,13 +91,19 @@ export default function Header({
         <div className="flex items-center gap-2">
           {!isLogado ? (
             <>
-              <button
-                type="button"
-                onClick={onOpenCadastro}
-                className="whitespace-nowrap rounded-full bg-nova-blue px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-nova-blueLight"
+              <motion.div
+                animate={{ boxShadow: ["0 0 0px #1652F0", "0 0 12px #1652F0", "0 0 0px #1652F0"] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                style={{ borderRadius: "6px" }}
               >
-                Registre-se
-              </button>
+                <button
+                  type="button"
+                  onClick={onOpenCadastro}
+                  className="whitespace-nowrap rounded-full bg-nova-blue px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-nova-blueLight"
+                >
+                  Registre-se
+                </button>
+              </motion.div>
               <button
                 type="button"
                 onClick={onOpenLogin}
@@ -210,13 +219,19 @@ export default function Header({
                 </Link>
                 <SeletorIdioma />
               </div>
-              <button
-                type="button"
-                onClick={onOpenCadastro}
-                className="whitespace-nowrap rounded-full bg-nova-blue px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-nova-blueLight md:px-5 md:py-2 md:text-sm"
+              <motion.div
+                animate={{ boxShadow: ["0 0 0px #1652F0", "0 0 12px #1652F0", "0 0 0px #1652F0"] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                style={{ borderRadius: "6px" }}
               >
-                Registre-se
-              </button>
+                <button
+                  type="button"
+                  onClick={onOpenCadastro}
+                  className="whitespace-nowrap rounded-full bg-nova-blue px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-nova-blueLight md:px-5 md:py-2 md:text-sm"
+                >
+                  Registre-se
+                </button>
+              </motion.div>
               <button
                 type="button"
                 onClick={onOpenLogin}

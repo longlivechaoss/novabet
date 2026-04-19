@@ -134,6 +134,16 @@ input {
   }
 }
 
+@keyframes tickerScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .icon-wobble {
   display: inline-block;
   transform-origin: center bottom;

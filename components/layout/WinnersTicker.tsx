@@ -1,6 +1,6 @@
 'use client'
-import { motion, useAnimationControls } from 'framer-motion'
-import { useEffect, useMemo, useState } from 'react'
+
+import { useMemo, useState } from 'react'
 import { jogos } from '@/data/jogos'
 
 const NAMES = ['Bia***', 'Car***', 'Jul***', 'Fer***', 'Ana***', 'Ped***', 'Mar***', 'Luc***', 'Gab***', 'Thi***', 'Rod***', 'Pat***']
@@ -18,18 +18,10 @@ const ganhadores = jogos.map((jogo, i) => ({
   gameImage: jogo.imagem ?? '/images/jogos/ftg.webp',
 }))
 
-const lista = [...ganhadores, ...ganhadores]
-
 type Ganhador = (typeof ganhadores)[0]
 
-const tickerTransition = {
-  duration: 15,
-  repeat: Infinity,
-  ease: 'linear' as const,
-}
-
 export default function WinnersTicker() {
-  const controls = useAnimationControls()
+  const [paused, setPaused] = useState(false)
   const [selected, setSelected] = useState<Ganhador | null>(null)
 
   const receiptId = useMemo(
@@ -37,39 +29,24 @@ export default function WinnersTicker() {
     [selected],
   )
 
-  const handleMouseEnter = () => controls.stop()
-  const handleMouseLeave = () => {
-    controls.start({
-      x: ['-50%', '0%'],
-      transition: tickerTransition,
-    })
-  }
-
-  useEffect(() => {
-    controls.start({
-      x: ['-50%', '0%'],
-      transition: tickerTransition,
-    })
-  }, [controls])
-
   return (
     <>
       {/* TICKER */}
-      <div
-        className="flex h-[52px] w-full items-center overflow-hidden bg-transparent md:h-[56px]"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+      <div className="flex h-[52px] w-full items-center overflow-hidden bg-transparent md:h-[56px]">
         <div className="h-full w-full min-w-0 overflow-hidden">
-          <motion.div
-            animate={controls}
-            initial={{ x: '-50%' }}
-            className="flex items-center h-full"
-            style={{ width: 'max-content' }}
+          <div
+            className="flex h-full items-center"
+            style={{
+              width: 'max-content',
+              animation: 'tickerScroll 15s linear infinite',
+              animationPlayState: paused ? 'paused' : 'running',
+            }}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
           >
-            {lista.map((g, i) => (
+            {ganhadores.map((g, i) => (
               <div
-                key={i}
+                key={`a-${i}`}
                 onClick={() => setSelected(g)}
                 style={{
                   display: 'flex',
@@ -102,7 +79,42 @@ export default function WinnersTicker() {
                 </div>
               </div>
             ))}
-          </motion.div>
+            {ganhadores.map((g, i) => (
+              <div
+                key={`b-${i}`}
+                onClick={() => setSelected(g)}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '0 14px',
+                  cursor: 'pointer',
+                  borderRadius: '8px',
+                  height: '100%',
+                  flexShrink: 0,
+                  background: 'transparent',
+                }}
+              >
+                <img
+                  src={g.gameImage}
+                  alt={g.game}
+                  className="h-[36px] w-[26px] shrink-0 rounded-[5px] object-cover md:h-[42px] md:w-[30px]"
+                />
+                <div className="flex flex-col gap-px">
+                  <span className="text-[10px] font-medium leading-tight text-white/55 md:text-[11px]">
+                    {g.user}
+                  </span>
+                  <span className="text-xs font-bold leading-tight text-white md:text-[13px]">
+                    R$ {g.amount}
+                  </span>
+                  <span className="text-[9px] font-normal leading-tight text-white/35 md:text-[10px]">
+                    {g.game}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

@@ -8,8 +8,8 @@
  * Arquivos em /public/images/banners/ — se usar .png em vez de .webp, ajuste o array mobileBanners abaixo.
  */
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 import { banners, bannersLaterais } from "@/data/jogos";
 
@@ -22,6 +22,10 @@ const mobileBanners = [
 ];
 
 export default function BannerSection() {
+  const bannerRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: bannerRef, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [mobileActiveIndex, setMobileActiveIndex] = useState(0);
   const [mainFailedImages, setMainFailedImages] = useState<Record<number, boolean>>({});
@@ -187,35 +191,38 @@ export default function BannerSection() {
 
       {/* DESKTOP — carrossel largura total */}
       <div
+        ref={bannerRef}
         className="relative hidden h-[360px] w-full overflow-hidden rounded-xl border border-nova-card/60 bg-nova-card md:block"
-        style={{ boxShadow: "0 0 30px rgba(22, 82, 240, 0.14)" }}
+        style={{ boxShadow: "0 0 30px rgba(22, 82, 240, 0.14)", position: "relative" }}
       >
-        <div
-          className="flex h-full transition-transform duration-700 ease-out"
-          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-        >
-          {banners.map((slide) => (
-            <a
-              key={slide.id}
-              href={slide.link}
-              className="relative h-full min-w-full shrink-0"
-              aria-label={slide.alt}
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${slide.gradient}`} />
+        <motion.div style={{ y }} className="h-full w-full overflow-hidden">
+          <div
+            className="flex h-full transition-transform duration-700 ease-out"
+            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+          >
+            {banners.map((slide) => (
+              <a
+                key={slide.id}
+                href={slide.link}
+                className="relative h-full min-w-full shrink-0"
+                aria-label={slide.alt}
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${slide.gradient}`} />
 
-              {!mainFailedImages[slide.id] ? (
-                <img
-                  src={slide.imagem}
-                  alt={slide.alt}
-                  className="absolute inset-0 h-full w-full object-cover"
-                  onError={() =>
-                    setMainFailedImages((current) => ({ ...current, [slide.id]: true }))
-                  }
-                />
-              ) : null}
-            </a>
-          ))}
-        </div>
+                {!mainFailedImages[slide.id] ? (
+                  <img
+                    src={slide.imagem}
+                    alt={slide.alt}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    onError={() =>
+                      setMainFailedImages((current) => ({ ...current, [slide.id]: true }))
+                    }
+                  />
+                ) : null}
+              </a>
+            ))}
+          </div>
+        </motion.div>
 
         <button
           type="button"

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -285,16 +285,19 @@ export default function JogosPage() {
         </div>
       ) : (
         <div className="grid grid-cols-6 gap-4">
-          {jogosFiltrados.map((game, index) => (
-            <motion.div
-              key={game.id}
-              className="game-card-glow group relative cursor-pointer overflow-hidden rounded-xl"
-              style={{ aspectRatio: "368 / 496" }}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.03, duration: 0.3 }}
-              whileHover={{ scale: 1.05 }}
-            >
+          <AnimatePresence mode="popLayout">
+            {jogosFiltrados.map((game, index) => (
+              <motion.div
+                key={game.id}
+                layout
+                className="game-card-glow group relative cursor-pointer overflow-hidden rounded-xl"
+                style={{ aspectRatio: "368 / 496" }}
+                initial={{ opacity: 0, scale: 0.92, y: 16 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.92 }}
+                transition={{ duration: 0.25, delay: index * 0.03, ease: "easeOut" }}
+                whileHover={{ scale: 1.05 }}
+              >
               <Link href={`/jogos/${slugifyGameName(game.nome)}`} className="block h-full w-full">
                 {game.imagem ? (
                   <Image src={game.imagem} alt={game.nome} fill className="object-cover" />
@@ -323,8 +326,9 @@ export default function JogosPage() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       )}
 
