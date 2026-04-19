@@ -13,7 +13,7 @@ const esportes = [
 
 export default function EsportesSection() {
   return (
-    <div className="mb-4 mt-5">
+    <div className="mb-3 mt-3">
       <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}

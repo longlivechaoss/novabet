@@ -62,7 +62,7 @@ export default function Header({
         transition={{ duration: 0.5 }}
         src="/images/logo-novabet.webp"
         alt="NovaBet"
-        className="h-6 w-auto object-contain md:h-8"
+        className="h-5 w-auto object-contain md:h-6"
       />
     </Link>
   );
@@ -83,14 +83,6 @@ export default function Header({
             </button>
           ) : null}
           {logo}
-          <button
-            type="button"
-            aria-label="Buscar"
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-nova-border bg-nova-card text-nova-text transition hover:border-nova-blue hover:bg-nova-elevated"
-            style={{ fontSize: "15px" }}
-          >
-            🔍
-          </button>
         </div>
 
         <div className="flex items-center gap-2">

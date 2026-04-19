@@ -22,90 +22,75 @@ type GameSectionProps = {
   showRanking?: boolean;
 };
 
-const arrowBtnStyle = {
-  position: "absolute" as const,
-  top: "50%",
-  transform: "translateY(-50%)",
-  zIndex: 30,
-  background: "#1652F0",
-  boxShadow: "0 0 16px 6px rgba(22,82,240,0.55)",
-  borderRadius: "50%",
-  color: "white",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  border: "none",
-  cursor: "pointer"
-};
-
-export default function GameSection({
-  title,
-  games,
-  showRanking = false
-}: GameSectionProps) {
+export default function GameSection({ title, games, showRanking = false }: GameSectionProps) {
   void showRanking;
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  function scrollCards(dir: -1 | 1) {
+  function goPrev() {
     const el = scrollRef.current;
     if (!el) return;
     const first = el.children[0] as HTMLElement | undefined;
     const gap = typeof window !== "undefined" && window.innerWidth < 768 ? 8 : 12;
-    const step = first ? first.offsetWidth + gap : 166;
-    el.scrollBy({ left: dir * step, behavior: "smooth" });
+    const step = first ? first.offsetWidth + gap : 150;
+    el.scrollBy({ left: -step, behavior: "smooth" });
+  }
+
+  function goNext() {
+    const el = scrollRef.current;
+    if (!el) return;
+    const first = el.children[0] as HTMLElement | undefined;
+    const gap = typeof window !== "undefined" && window.innerWidth < 768 ? 8 : 12;
+    const step = first ? first.offsetWidth + gap : 150;
+    el.scrollBy({ left: step, behavior: "smooth" });
   }
 
   return (
     <motion.section
-      className="space-y-4"
+      className="mb-2 space-y-2"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 rounded-full border border-nova-blue/40 bg-nova-blue/20 px-4 py-1.5">
-            <div className="h-2 w-2 animate-pulse rounded-full bg-nova-blueBright" />
-            <span className="text-base font-bold text-white md:text-lg">{title}</span>
-          </div>
+      <div className="mb-3 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="text-sm font-bold text-white md:text-base">{title}</span>
         </div>
-        <button
-          type="button"
-          className="text-sm font-medium text-nova-blue transition hover:underline"
-        >
-          Ver todos
-        </button>
+
+        <div className="flex items-center gap-1.5">
+          <button
+            type="button"
+            onClick={goPrev}
+            className="flex h-7 w-7 items-center justify-center rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
+            style={{ fontSize: "16px" }}
+            aria-label="Anterior"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            onClick={goNext}
+            className="flex h-7 w-7 items-center justify-center rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
+            style={{ fontSize: "16px" }}
+            aria-label="Próximo"
+          >
+            ›
+          </button>
+          <Link
+            href="/jogos"
+            className="flex items-center gap-1 rounded-lg bg-nova-blue px-3 py-1 text-xs font-semibold text-white transition hover:bg-nova-blueLight"
+          >
+            Ver todos <span>›</span>
+          </Link>
+        </div>
       </div>
 
-      <div className="relative">
-        <button
-          type="button"
-          onClick={() => scrollCards(-1)}
-          aria-label="Anterior"
-          className="h-7 w-7 md:h-9 md:w-9"
-          style={{ ...arrowBtnStyle, left: "12px" }}
-        >
-          ◀
-        </button>
-        <button
-          type="button"
-          onClick={() => scrollCards(1)}
-          aria-label="Próximo"
-          className="h-7 w-7 md:h-9 md:w-9"
-          style={{ ...arrowBtnStyle, right: "12px" }}
-        >
-          ▶
-        </button>
-        <div
-          ref={scrollRef}
-          className="flex gap-2 overflow-x-auto pb-2 md:gap-3"
-        >
+      <div ref={scrollRef} className="flex gap-2 overflow-x-auto pb-2 md:gap-3">
         {games.map((game, index) => (
           <motion.div
             key={game.id ?? index}
-            className="game-card-glow group relative w-[100px] min-w-[100px] shrink-0 cursor-pointer overflow-hidden rounded-xl md:min-w-[130px] md:w-[130px] lg:min-w-[150px] lg:w-[150px]"
+            className="game-card-glow group relative w-[90px] min-w-[90px] shrink-0 cursor-pointer overflow-hidden rounded-xl md:min-w-[118px] md:w-[118px] lg:min-w-[136px] lg:w-[136px]"
             style={{ aspectRatio: "368 / 496" }}
             whileHover={{ scale: 1.05 }}
           >
@@ -154,7 +139,6 @@ export default function GameSection({
             </Link>
           </motion.div>
         ))}
-        </div>
       </div>
     </motion.section>
   );

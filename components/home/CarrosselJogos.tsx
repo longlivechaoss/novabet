@@ -93,7 +93,7 @@ export default function CarrosselJogos({ titulo, jogos, mostrarBadges = false }:
   };
 
   return (
-    <div className="mb-1 mt-5">
+    <div className="mb-3 mt-3">
       <div className="mb-3 flex items-center justify-between pr-6">
         <div className="flex items-center gap-2.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -108,12 +108,32 @@ export default function CarrosselJogos({ titulo, jogos, mostrarBadges = false }:
           <h2 className="text-base font-bold text-white md:text-lg">{titulo}</h2>
         </div>
 
-        <Link
-          href="/jogos"
-          className="text-sm text-nova-blue transition-colors hover:text-nova-blueLight hover:underline"
-        >
-          Ver todos
-        </Link>
+        <div className="flex items-center gap-1.5">
+          <button
+            type="button"
+            onClick={rolarEsquerda}
+            className="flex h-7 w-7 items-center justify-center rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
+            style={{ fontSize: "16px" }}
+            aria-label="Anterior"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            onClick={rolarDireita}
+            className="flex h-7 w-7 items-center justify-center rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
+            style={{ fontSize: "16px" }}
+            aria-label="Próximo"
+          >
+            ›
+          </button>
+          <Link
+            href="/jogos"
+            className="flex items-center gap-1 rounded-lg bg-nova-blue px-3 py-1 text-xs font-semibold text-white transition hover:bg-nova-blueLight"
+          >
+            Ver todos <span>›</span>
+          </Link>
+        </div>
       </div>
 
       <div className="relative -mr-6 overflow-visible lg:-mr-8">
@@ -124,58 +144,6 @@ export default function CarrosselJogos({ titulo, jogos, mostrarBadges = false }:
               "linear-gradient(to left, #141420 0%, rgba(20, 20, 32, 0.8) 40%, transparent 100%)"
           }}
         />
-
-        <button
-          type="button"
-          onClick={rolarEsquerda}
-          aria-label="Anterior"
-          style={{
-            position: "absolute",
-            left: "12px",
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 30,
-            background: "#1652F0",
-            boxShadow: "0 0 16px 6px rgba(22,82,240,0.55)",
-            borderRadius: "50%",
-            color: "white",
-            width: "40px",
-            height: "40px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            border: "none",
-            cursor: "pointer"
-          }}
-        >
-          ◀
-        </button>
-
-        <button
-          type="button"
-          onClick={rolarDireita}
-          aria-label="Próximo"
-          style={{
-            position: "absolute",
-            right: "12px",
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 30,
-            background: "#1652F0",
-            boxShadow: "0 0 16px 6px rgba(22,82,240,0.55)",
-            borderRadius: "50%",
-            color: "white",
-            width: "40px",
-            height: "40px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            border: "none",
-            cursor: "pointer"
-          }}
-        >
-          ▶
-        </button>
 
         <div
           ref={scrollRef}

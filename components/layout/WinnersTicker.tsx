@@ -40,14 +40,14 @@ export default function WinnersTicker() {
   const handleMouseEnter = () => controls.stop()
   const handleMouseLeave = () => {
     controls.start({
-      x: ['0%', '-50%'],
+      x: ['-50%', '0%'],
       transition: tickerTransition,
     })
   }
 
   useEffect(() => {
     controls.start({
-      x: ['0%', '-50%'],
+      x: ['-50%', '0%'],
       transition: tickerTransition,
     })
   }, [controls])
@@ -56,35 +56,14 @@ export default function WinnersTicker() {
     <>
       {/* TICKER */}
       <div
-        className="flex h-11 w-full items-center overflow-hidden md:h-14"
-        style={{
-          background: '#0b0f1e',
-          borderBottom: '1px solid rgba(255,255,255,0.07)',
-        }}
+        className="flex h-[52px] w-full items-center overflow-hidden bg-transparent md:h-[56px]"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {/* Label AO VIVO */}
-        <div
-          className="flex-shrink-0 flex items-center gap-2 px-4 h-full"
-          style={{ borderRight: '1px solid rgba(255,255,255,0.08)', minWidth: 'fit-content' }}
-        >
-          <span style={{
-            width: '8px', height: '8px', borderRadius: '50%',
-            background: '#E63946', display: 'inline-block',
-            boxShadow: '0 0 6px 2px rgba(230,57,70,0.7)',
-            animation: 'pulse 1.5s ease-in-out infinite',
-          }} />
-          <span style={{ fontSize: '11px', fontWeight: 700, color: '#E63946', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>
-            AO VIVO
-          </span>
-        </div>
-
-        {/* Itens rolando */}
-        <div className="flex-1 overflow-hidden h-full">
+        <div className="h-full w-full min-w-0 overflow-hidden">
           <motion.div
             animate={controls}
-            initial={{ x: '0%' }}
+            initial={{ x: '-50%' }}
             className="flex items-center h-full"
             style={{ width: 'max-content' }}
           >
@@ -92,8 +71,6 @@ export default function WinnersTicker() {
               <div
                 key={i}
                 onClick={() => setSelected(g)}
-                onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.07)')}
-                onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
                 style={{
                   display: 'flex',
                   flexDirection: 'row',
@@ -102,9 +79,9 @@ export default function WinnersTicker() {
                   padding: '0 14px',
                   cursor: 'pointer',
                   borderRadius: '8px',
-                  transition: 'background 0.2s',
                   height: '100%',
                   flexShrink: 0,
+                  background: 'transparent',
                 }}
               >
                 <img

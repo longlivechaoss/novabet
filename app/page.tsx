@@ -7,6 +7,7 @@ import EsportesSection from "@/components/home/EsportesSection";
 import Provedores from "@/components/home/Provedores";
 import CheckInDiario from "@/components/engagement/CheckInDiario";
 import SiteShell from "@/components/layout/SiteShell";
+import MobileSearchBar from "@/components/home/MobileSearchBar";
 import WinnersTicker from "@/components/layout/WinnersTicker";
 
 const recomendados = [
@@ -242,20 +243,21 @@ export default function HomePage() {
     <SiteShell
       withFooter
       autoOpenCadastro
-      contentClassName="mx-auto flex w-full max-w-[1440px] flex-col gap-6 px-4 py-6 lg:px-8"
+      contentClassName="mx-auto flex w-full max-w-[1440px] flex-col gap-3 px-4 py-4 lg:px-8"
     >
       {({ isLogado }) => (
         <>
           <WinnersTicker />
           {isLogado ? <CheckInDiario /> : null}
           <BannerSection />
+          <MobileSearchBar />
           <Provedores />
           <CarrosselJogos titulo="Recomendados" jogos={recomendados} mostrarBadges />
           <CarrosselJogos titulo="Em Alta" jogos={emAlta} />
           <CarrosselJogos titulo="Jogos CP Games" jogos={cpGames} />
           <BannerPromocional />
           <EsportesSection />
-          <div className="my-12 h-px bg-gradient-to-r from-transparent via-nova-blue/50 to-transparent" />
+          <div className="my-6 h-px bg-gradient-to-r from-transparent via-nova-blue/50 to-transparent" />
         </>
       )}
     </SiteShell>

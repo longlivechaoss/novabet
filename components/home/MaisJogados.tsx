@@ -12,32 +12,25 @@ type MaisJogadosProps = {
   titulo: string;
 };
 
-const arrowBtnStyle = {
-  position: "absolute" as const,
-  top: "50%",
-  transform: "translateY(-50%)",
-  zIndex: 30,
-  background: "#1652F0",
-  boxShadow: "0 0 16px 6px rgba(22,82,240,0.55)",
-  borderRadius: "50%",
-  color: "white",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  border: "none",
-  cursor: "pointer"
-};
-
 export default function MaisJogados({ titulo }: MaisJogadosProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  function scrollCards(dir: -1 | 1) {
+  function goPrev() {
     const el = scrollRef.current;
     if (!el) return;
     const first = el.children[0] as HTMLElement | undefined;
     const gap = typeof window !== "undefined" && window.innerWidth < 768 ? 8 : 12;
-    const step = first ? first.offsetWidth + gap : 166;
-    el.scrollBy({ left: dir * step, behavior: "smooth" });
+    const step = first ? first.offsetWidth + gap : 150;
+    el.scrollBy({ left: -step, behavior: "smooth" });
+  }
+
+  function goNext() {
+    const el = scrollRef.current;
+    if (!el) return;
+    const first = el.children[0] as HTMLElement | undefined;
+    const gap = typeof window !== "undefined" && window.innerWidth < 768 ? 8 : 12;
+    const step = first ? first.offsetWidth + gap : 150;
+    el.scrollBy({ left: step, behavior: "smooth" });
   }
 
   const badgeStyles = {
@@ -57,43 +50,50 @@ export default function MaisJogados({ titulo }: MaisJogadosProps) {
 
   return (
     <motion.div
-      className="space-y-4"
+      className="mb-2 space-y-2"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2, margin: "-80px 0px 0px 0px" }}
       transition={{ duration: 0.6 }}
     >
-      <div className="mb-4 flex items-center gap-3">
-        <div className="flex items-center gap-2 rounded-full border border-nova-blue/40 bg-nova-blue/20 px-4 py-1.5">
-          <div className="h-2 w-2 animate-pulse rounded-full bg-nova-blueBright" />
-          <span className="text-base font-bold text-white md:text-lg">{titulo}</span>
+      <div className="mb-3 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="text-sm font-bold text-white md:text-base">{titulo}</span>
+        </div>
+
+        <div className="flex items-center gap-1.5">
+          <button
+            type="button"
+            onClick={goPrev}
+            className="flex h-7 w-7 items-center justify-center rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
+            style={{ fontSize: "16px" }}
+            aria-label="Anterior"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            onClick={goNext}
+            className="flex h-7 w-7 items-center justify-center rounded-full bg-nova-card text-white transition hover:bg-nova-elevated"
+            style={{ fontSize: "16px" }}
+            aria-label="Próximo"
+          >
+            ›
+          </button>
+          <Link
+            href="/jogos"
+            className="flex items-center gap-1 rounded-lg bg-nova-blue px-3 py-1 text-xs font-semibold text-white transition hover:bg-nova-blueLight"
+          >
+            Ver todos <span>›</span>
+          </Link>
         </div>
       </div>
 
-      <div className="relative">
-        <button
-          type="button"
-          onClick={() => scrollCards(-1)}
-          aria-label="Anterior"
-          className="h-7 w-7 md:h-9 md:w-9"
-          style={{ ...arrowBtnStyle, left: "12px" }}
-        >
-          ◀
-        </button>
-        <button
-          type="button"
-          onClick={() => scrollCards(1)}
-          aria-label="Próximo"
-          className="h-7 w-7 md:h-9 md:w-9"
-          style={{ ...arrowBtnStyle, right: "12px" }}
-        >
-          ▶
-        </button>
-        <div ref={scrollRef} className="flex gap-2 overflow-x-auto pb-2 md:gap-3">
+      <div ref={scrollRef} className="flex gap-2 overflow-x-auto pb-2 md:gap-3">
         {jogosRecomendados.map((jogo) => (
           <motion.div
             key={jogo.id}
-            className="min-w-[100px] max-w-[100px] flex-shrink-0 overflow-hidden rounded-xl md:min-w-[130px] md:max-w-[130px] lg:min-w-[150px] lg:max-w-[150px]"
+            className="min-w-[90px] max-w-[90px] flex-shrink-0 overflow-hidden rounded-xl md:min-w-[118px] md:max-w-[118px] lg:min-w-[136px] lg:max-w-[136px]"
             whileHover={{ scale: 1.05 }}
           >
             <Link href={`/jogos/${slugifyGameName(jogo.nome)}`}>
@@ -146,7 +146,6 @@ export default function MaisJogados({ titulo }: MaisJogadosProps) {
             </Link>
           </motion.div>
         ))}
-        </div>
       </div>
     </motion.div>
   );

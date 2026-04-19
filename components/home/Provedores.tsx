@@ -21,9 +21,9 @@ const provedores = [
 
 export default function Provedores() {
   return (
-    <div className="mb-4 mt-6">
+    <div className="mb-3 mt-3">
       {/* Header */}
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           <div className="h-5 w-1 rounded-full bg-nova-blue" />
           <h2 className="text-base font-bold text-white md:text-lg">Provedores de Jogos</h2>

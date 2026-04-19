@@ -17,7 +17,7 @@ export default function ModalCadastro({ onClose }: Props) {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 z-[9999] flex items-center justify-center p-4 pb-[70px] md:pb-4"
         style={{ backdropFilter: 'blur(14px)', backgroundColor: 'rgba(0,0,0,0.65)' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -25,15 +25,15 @@ export default function ModalCadastro({ onClose }: Props) {
         onClick={onClose}
       >
         <motion.div
-          className="relative flex w-full max-w-[860px] overflow-hidden rounded-2xl shadow-2xl"
-          style={{ maxHeight: '90vh' }}
+          className="relative mx-4 flex w-full max-w-[860px] flex-col overflow-y-auto rounded-2xl shadow-2xl md:flex-row"
+          style={{ maxHeight: 'calc(100vh - 120px)' }}
           initial={{ opacity: 0, scale: 0.94, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.94, y: 20 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="relative flex w-[340px] flex-shrink-0 flex-col justify-between overflow-hidden bg-nova-card p-8">
+          <div className="relative flex w-full flex-shrink-0 flex-col justify-between overflow-hidden bg-nova-card p-8 md:w-[340px]">
             <div className="pointer-events-none absolute right-[-60px] top-[-60px] h-[200px] w-[200px] rounded-full bg-nova-blue/20 blur-3xl" />
             <div className="pointer-events-none absolute bottom-[-40px] left-[-40px] h-[160px] w-[160px] rounded-full bg-nova-blue/20 blur-3xl" />
 

@@ -58,7 +58,7 @@ export default function BannerSection() {
       {/* MOBILE BANNER */}
       <div
         className="block md:hidden"
-        style={{ position: 'relative', height: '160px', margin: '8px -16px 20px', overflow: 'hidden' }}
+        style={{ position: 'relative', height: '160px', margin: '4px -16px 8px', overflow: 'hidden' }}
       >
         {mobileBanners.map((banner, index) => {
           let offset = index - mobileActiveIndex;

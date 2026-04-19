@@ -234,7 +234,16 @@ export default function Footer() {
         className="flex w-full flex-col items-center px-6 py-5"
         style={{ background: "linear-gradient(to bottom, #071230 0%, #040C1E 100%)" }}
       >
-        <div className="flex flex-wrap items-center justify-center gap-2 md:justify-start md:gap-4">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, auto)",
+            gap: "8px 16px",
+            alignItems: "center",
+            justifyContent: "center",
+            opacity: 0.7
+          }}
+        >
           {[
             { src: "/images/pagamentos/Pix.svg", alt: "Pix" },
             { src: "/images/pagamentos/BancoDoBrasil.svg", alt: "Banco do Brasil" },
@@ -250,9 +259,9 @@ export default function Footer() {
               src={metodo.src}
               alt={metodo.alt}
               style={{
-                height: "28px",
+                height: "18px",
                 width: "auto",
-                opacity: 0.65,
+                opacity: 0.85,
                 filter: "brightness(0) invert(1)",
                 transition: "opacity 0.2s"
               }}
@@ -260,7 +269,7 @@ export default function Footer() {
                 e.currentTarget.style.opacity = "1";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.opacity = "0.65";
+                e.currentTarget.style.opacity = "0.85";
               }}
             />
           ))}
