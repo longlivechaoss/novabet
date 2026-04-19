@@ -1,0 +1,606 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e6]: 🎁 Bônus de 200% no primeiro depósito
+      - button "Fechar" [ref=e7] [cursor=pointer]: ✕
+    - banner [ref=e8]:
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - button "Abrir menu" [ref=e11] [cursor=pointer]: ☰
+          - link "NovaBet" [ref=e12] [cursor=pointer]:
+            - /url: /
+            - img "NovaBet" [ref=e13]
+        - generic [ref=e14]:
+          - button "Registre-se" [ref=e15] [cursor=pointer]
+          - button "Entrar" [ref=e16] [cursor=pointer]
+    - complementary [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e20]:
+          - generic [ref=e22]:
+            - generic:
+              - img
+            - textbox "Buscar |" [ref=e23]
+          - generic [ref=e24]:
+            - link "Promoções Promoções" [ref=e25] [cursor=pointer]:
+              - /url: /promocoes
+              - img "Promoções" [ref=e27]
+              - generic [ref=e28]: Promoções
+            - link "Missões Missões" [ref=e30] [cursor=pointer]:
+              - /url: "#"
+              - img "Missões" [ref=e32]
+              - generic [ref=e33]: Missões
+            - link "Torneios Torneios" [ref=e35] [cursor=pointer]:
+              - /url: /torneios
+              - img "Torneios" [ref=e37]
+              - generic [ref=e38]: Torneios
+        - navigation [ref=e40]:
+          - link "Promoções Promoções" [ref=e41] [cursor=pointer]:
+            - /url: /promocoes
+            - img "Promoções" [ref=e43]
+            - generic [ref=e44]: Promoções
+          - generic [ref=e45]:
+            - button "Cassino Cassino" [ref=e46] [cursor=pointer]:
+              - generic [ref=e47]:
+                - img "Cassino" [ref=e49]
+                - generic [ref=e50]: Cassino
+              - img [ref=e53]
+            - generic [ref=e55]:
+              - link "Jogos Slots" [ref=e56] [cursor=pointer]:
+                - /url: /jogos?cat=slots
+              - link "Todos os jogos" [ref=e57] [cursor=pointer]:
+                - /url: /jogos
+              - link "Mines" [ref=e58] [cursor=pointer]:
+                - /url: /jogos/mines
+              - link "Fortune Tiger" [ref=e59] [cursor=pointer]:
+                - /url: /jogos/fortune-tiger
+              - link "Aviator" [ref=e60] [cursor=pointer]:
+                - /url: /jogos/aviator
+              - link "Spaceman" [ref=e61] [cursor=pointer]:
+                - /url: /jogos/spaceman
+          - button "Cassino ao Vivo Cassino ao Vivo" [ref=e63] [cursor=pointer]:
+            - generic [ref=e64]:
+              - img "Cassino ao Vivo" [ref=e66]
+              - generic [ref=e67]: Cassino ao Vivo
+            - img [ref=e70]
+          - button "Jackpots Jackpots" [ref=e72] [cursor=pointer]:
+            - img "Jackpots" [ref=e74]
+            - generic [ref=e75]: Jackpots
+          - button "VIP Club VIP Club" [ref=e76] [cursor=pointer]:
+            - img "VIP Club" [ref=e78]
+            - generic [ref=e79]: VIP Club
+          - button "Indicação Indicação" [ref=e80] [cursor=pointer]:
+            - img "Indicação" [ref=e82]
+            - generic [ref=e83]: Indicação
+          - link "Suporte Suporte" [ref=e85] [cursor=pointer]:
+            - /url: /suporte
+            - img "Suporte" [ref=e87]
+            - generic [ref=e88]: Suporte
+          - button "Instalar App" [ref=e89] [cursor=pointer]:
+            - img [ref=e91]
+            - generic [ref=e94]: Instalar App
+          - button "Idioma Português" [ref=e96] [cursor=pointer]:
+            - generic [ref=e97]:
+              - img [ref=e99]
+              - generic [ref=e102]: Idioma
+            - generic [ref=e103]:
+              - generic [ref=e104]: Português
+              - img [ref=e106]
+    - main [ref=e108]:
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - generic [ref=e113]: AO VIVO
+          - generic [ref=e115]:
+            - generic [ref=e116] [cursor=pointer]:
+              - img "Fortune Tiger" [ref=e117]
+              - generic [ref=e118]:
+                - generic [ref=e119]: Bia***
+                - generic [ref=e120]: R$ 890
+                - generic [ref=e121]: Fortune Tiger
+            - generic [ref=e122] [cursor=pointer]:
+              - img "Crazy Time" [ref=e123]
+              - generic [ref=e124]:
+                - generic [ref=e125]: Car***
+                - generic [ref=e126]: R$ 2.100
+                - generic [ref=e127]: Crazy Time
+            - generic [ref=e128] [cursor=pointer]:
+              - img "Lightning Roulette" [ref=e129]
+              - generic [ref=e130]:
+                - generic [ref=e131]: Jul***
+                - generic [ref=e132]: R$ 580
+                - generic [ref=e133]: Lightning Roulette
+            - generic [ref=e134] [cursor=pointer]:
+              - img "Monopoly Live" [ref=e135]
+              - generic [ref=e136]:
+                - generic [ref=e137]: Fer***
+                - generic [ref=e138]: R$ 4.200
+                - generic [ref=e139]: Monopoly Live
+            - generic [ref=e140] [cursor=pointer]:
+              - img "Mega Ball" [ref=e141]
+              - generic [ref=e142]:
+                - generic [ref=e143]: Ana***
+                - generic [ref=e144]: R$ 340
+                - generic [ref=e145]: Mega Ball
+            - generic [ref=e146] [cursor=pointer]:
+              - img "Dream Catcher" [ref=e147]
+              - generic [ref=e148]:
+                - generic [ref=e149]: Ped***
+                - generic [ref=e150]: R$ 1.100
+                - generic [ref=e151]: Dream Catcher
+            - generic [ref=e152] [cursor=pointer]:
+              - img "Fortune Tiger" [ref=e153]
+              - generic [ref=e154]:
+                - generic [ref=e155]: Bia***
+                - generic [ref=e156]: R$ 890
+                - generic [ref=e157]: Fortune Tiger
+            - generic [ref=e158] [cursor=pointer]:
+              - img "Crazy Time" [ref=e159]
+              - generic [ref=e160]:
+                - generic [ref=e161]: Car***
+                - generic [ref=e162]: R$ 2.100
+                - generic [ref=e163]: Crazy Time
+            - generic [ref=e164] [cursor=pointer]:
+              - img "Lightning Roulette" [ref=e165]
+              - generic [ref=e166]:
+                - generic [ref=e167]: Jul***
+                - generic [ref=e168]: R$ 580
+                - generic [ref=e169]: Lightning Roulette
+            - generic [ref=e170] [cursor=pointer]:
+              - img "Monopoly Live" [ref=e171]
+              - generic [ref=e172]:
+                - generic [ref=e173]: Fer***
+                - generic [ref=e174]: R$ 4.200
+                - generic [ref=e175]: Monopoly Live
+            - generic [ref=e176] [cursor=pointer]:
+              - img "Mega Ball" [ref=e177]
+              - generic [ref=e178]:
+                - generic [ref=e179]: Ana***
+                - generic [ref=e180]: R$ 340
+                - generic [ref=e181]: Mega Ball
+            - generic [ref=e182] [cursor=pointer]:
+              - img "Dream Catcher" [ref=e183]
+              - generic [ref=e184]:
+                - generic [ref=e185]: Ped***
+                - generic [ref=e186]: R$ 1.100
+                - generic [ref=e187]: Dream Catcher
+        - generic [ref=e189]:
+          - generic [ref=e190]:
+            - img "Promoção 1" [ref=e192]
+            - img "Promoção 2" [ref=e194] [cursor=pointer]
+            - img "Promoção 3" [ref=e196] [cursor=pointer]
+            - img "Promoção 4" [ref=e198] [cursor=pointer]
+          - generic [ref=e199]:
+            - button [ref=e200] [cursor=pointer]
+            - button [ref=e201] [cursor=pointer]
+            - button [ref=e202] [cursor=pointer]
+            - button [ref=e203] [cursor=pointer]
+        - generic [ref=e204]:
+          - generic [ref=e205]:
+            - heading "Provedores de Jogos" [level=2] [ref=e208]
+            - link "Ver todos" [ref=e209] [cursor=pointer]:
+              - /url: /provedores
+          - generic [ref=e211]:
+            - img "Provedor 1" [ref=e213] [cursor=pointer]
+            - img "Provedor 2" [ref=e215] [cursor=pointer]
+            - img "Provedor 3" [ref=e217] [cursor=pointer]
+            - img "Provedor 4" [ref=e219] [cursor=pointer]
+            - img "Provedor 5" [ref=e221] [cursor=pointer]
+            - img "Provedor 6" [ref=e223] [cursor=pointer]
+            - img "Provedor 7" [ref=e225] [cursor=pointer]
+            - img "Provedor 8" [ref=e227] [cursor=pointer]
+            - img "Provedor 9" [ref=e229] [cursor=pointer]
+            - img "Provedor 10" [ref=e231] [cursor=pointer]
+            - img "Provedor 11" [ref=e233] [cursor=pointer]
+            - img "Provedor 12" [ref=e235] [cursor=pointer]
+            - img "Provedor 13" [ref=e237] [cursor=pointer]
+            - img "Provedor 1" [ref=e239] [cursor=pointer]
+            - img "Provedor 2" [ref=e241] [cursor=pointer]
+            - img "Provedor 3" [ref=e243] [cursor=pointer]
+            - img "Provedor 4" [ref=e245] [cursor=pointer]
+            - img "Provedor 5" [ref=e247] [cursor=pointer]
+            - img "Provedor 6" [ref=e249] [cursor=pointer]
+            - img "Provedor 7" [ref=e251] [cursor=pointer]
+            - img "Provedor 8" [ref=e253] [cursor=pointer]
+            - img "Provedor 9" [ref=e255] [cursor=pointer]
+            - img "Provedor 10" [ref=e257] [cursor=pointer]
+            - img "Provedor 11" [ref=e259] [cursor=pointer]
+            - img "Provedor 12" [ref=e261] [cursor=pointer]
+            - img "Provedor 13" [ref=e263] [cursor=pointer]
+        - generic [ref=e264]:
+          - generic [ref=e265]:
+            - heading "Recomendados" [level=2] [ref=e267]
+            - link "Ver todos" [ref=e268] [cursor=pointer]:
+              - /url: /jogos
+          - generic [ref=e269]:
+            - button "Anterior" [ref=e270] [cursor=pointer]: ◀
+            - button "Próximo" [ref=e271] [cursor=pointer]: ▶
+            - generic [ref=e272]:
+              - link "Fortune Tiger 🔥 HOT Jogar Agora" [ref=e274] [cursor=pointer]:
+                - /url: /jogos/fortune-tiger
+                - generic [ref=e275]:
+                  - img "Fortune Tiger" [ref=e276]
+                  - generic [ref=e277]: 🔥 HOT
+                  - generic [ref=e281]: Jogar Agora
+              - link "Crazy Time ✨ NOVO Jogar Agora" [ref=e283] [cursor=pointer]:
+                - /url: /jogos/crazy-time
+                - generic [ref=e284]:
+                  - img "Crazy Time" [ref=e285]
+                  - generic [ref=e286]: ✨ NOVO
+                  - generic [ref=e290]: Jogar Agora
+              - link "Lightning Roulette Jogar Agora" [ref=e292] [cursor=pointer]:
+                - /url: /jogos/lightning-roulette
+                - generic [ref=e293]:
+                  - img "Lightning Roulette" [ref=e294]
+                  - generic [ref=e298]: Jogar Agora
+              - link "Monopoly Live Jogar Agora" [ref=e300] [cursor=pointer]:
+                - /url: /jogos/monopoly-live
+                - generic [ref=e301]:
+                  - img "Monopoly Live" [ref=e302]
+                  - generic [ref=e306]: Jogar Agora
+              - link "Mega Ball Jogar Agora" [ref=e308] [cursor=pointer]:
+                - /url: /jogos/mega-ball
+                - generic [ref=e309]:
+                  - img "Mega Ball" [ref=e310]
+                  - generic [ref=e314]: Jogar Agora
+              - link "Dream Catcher Jogar Agora" [ref=e316] [cursor=pointer]:
+                - /url: /jogos/dream-catcher
+                - generic [ref=e317]:
+                  - img "Dream Catcher" [ref=e318]
+                  - generic [ref=e322]: Jogar Agora
+              - link "Funky Time 👑 TOP Jogar Agora" [ref=e324] [cursor=pointer]:
+                - /url: /jogos/funky-time
+                - generic [ref=e325]:
+                  - img "Funky Time" [ref=e326]
+                  - generic [ref=e327]: 👑 TOP
+                  - generic [ref=e331]: Jogar Agora
+              - link "Lightning Storm Jogar Agora" [ref=e333] [cursor=pointer]:
+                - /url: /jogos/lightning-storm
+                - generic [ref=e334]:
+                  - img "Lightning Storm" [ref=e335]
+                  - generic [ref=e339]: Jogar Agora
+              - link "Crazy Balls Jogar Agora" [ref=e341] [cursor=pointer]:
+                - /url: /jogos/crazy-balls
+                - generic [ref=e342]:
+                  - img "Crazy Balls" [ref=e343]
+                  - generic [ref=e347]: Jogar Agora
+              - link "Football Studio Jogar Agora" [ref=e349] [cursor=pointer]:
+                - /url: /jogos/football-studio
+                - generic [ref=e350]:
+                  - img "Football Studio" [ref=e351]
+                  - generic [ref=e355]: Jogar Agora
+              - link "Lightning Blackjack Jogar Agora" [ref=e357] [cursor=pointer]:
+                - /url: /jogos/lightning-blackjack
+                - generic [ref=e358]:
+                  - img "Lightning Blackjack" [ref=e359]
+                  - generic [ref=e363]: Jogar Agora
+              - link "Double Ball Roulette Jogar Agora" [ref=e365] [cursor=pointer]:
+                - /url: /jogos/double-ball-roulette
+                - generic [ref=e366]:
+                  - img "Double Ball Roulette" [ref=e367]
+                  - generic [ref=e371]: Jogar Agora
+        - generic [ref=e372]:
+          - generic [ref=e373]:
+            - heading "Em Alta" [level=2] [ref=e375]
+            - link "Ver todos" [ref=e376] [cursor=pointer]:
+              - /url: /jogos
+          - generic [ref=e377]:
+            - button "Anterior" [ref=e378] [cursor=pointer]: ◀
+            - button "Próximo" [ref=e379] [cursor=pointer]: ▶
+            - generic [ref=e380]:
+              - link "Aviator Jogar Agora" [ref=e382] [cursor=pointer]:
+                - /url: /jogos/aviator
+                - generic [ref=e383]:
+                  - img "Aviator" [ref=e384]
+                  - generic [ref=e388]: Jogar Agora
+              - link "Gravity Plinko Jogar Agora" [ref=e390] [cursor=pointer]:
+                - /url: /jogos/gravity-plinko
+                - generic [ref=e391]:
+                  - img "Gravity Plinko" [ref=e392]
+                  - generic [ref=e396]: Jogar Agora
+              - link "Crash Live Jogar Agora" [ref=e398] [cursor=pointer]:
+                - /url: /jogos/crash-live
+                - generic [ref=e399]:
+                  - img "Crash Live" [ref=e400]
+                  - generic [ref=e404]: Jogar Agora
+              - link "Big Cash Strike Jogar Agora" [ref=e406] [cursor=pointer]:
+                - /url: /jogos/big-cash-strike
+                - generic [ref=e407]:
+                  - img "Big Cash Strike" [ref=e408]
+                  - generic [ref=e412]: Jogar Agora
+              - link "Extra Chilli Jogar Agora" [ref=e414] [cursor=pointer]:
+                - /url: /jogos/extra-chilli
+                - generic [ref=e415]:
+                  - img "Extra Chilli" [ref=e416]
+                  - generic [ref=e420]: Jogar Agora
+              - link "Red Door Roulette Jogar Agora" [ref=e422] [cursor=pointer]:
+                - /url: /jogos/red-door-roulette
+                - generic [ref=e423]:
+                  - img "Red Door Roulette" [ref=e424]
+                  - generic [ref=e428]: Jogar Agora
+              - link "Stock Market Jogar Agora" [ref=e430] [cursor=pointer]:
+                - /url: /jogos/stock-market
+                - generic [ref=e431]:
+                  - img "Stock Market" [ref=e432]
+                  - generic [ref=e436]: Jogar Agora
+              - link "War Jogar Agora" [ref=e438] [cursor=pointer]:
+                - /url: /jogos/war
+                - generic [ref=e439]:
+                  - img "War" [ref=e440]
+                  - generic [ref=e444]: Jogar Agora
+              - link "Balloon Race Jogar Agora" [ref=e446] [cursor=pointer]:
+                - /url: /jogos/balloon-race
+                - generic [ref=e447]:
+                  - img "Balloon Race" [ref=e448]
+                  - generic [ref=e452]: Jogar Agora
+              - link "Gravity Roulette Jogar Agora" [ref=e454] [cursor=pointer]:
+                - /url: /jogos/gravity-roulette
+                - generic [ref=e455]:
+                  - img "Gravity Roulette" [ref=e456]
+                  - generic [ref=e460]: Jogar Agora
+              - link "Hot Slot Magic Pearls Jogar Agora" [ref=e462] [cursor=pointer]:
+                - /url: /jogos/hot-slot-magic-pearls
+                - generic [ref=e463]:
+                  - img "Hot Slot Magic Pearls" [ref=e464]
+                  - generic [ref=e468]: Jogar Agora
+              - link "Mice and Magic Jogar Agora" [ref=e470] [cursor=pointer]:
+                - /url: /jogos/mice-and-magic
+                - generic [ref=e471]:
+                  - img "Mice and Magic" [ref=e472]
+                  - generic [ref=e476]: Jogar Agora
+        - generic [ref=e477]:
+          - generic [ref=e478]:
+            - heading "Jogos CP Games" [level=2] [ref=e480]
+            - link "Ver todos" [ref=e481] [cursor=pointer]:
+              - /url: /jogos
+          - generic [ref=e482]:
+            - button "Anterior" [ref=e483] [cursor=pointer]: ◀
+            - button "Próximo" [ref=e484] [cursor=pointer]: ▶
+            - generic [ref=e485]:
+              - link "Dork Unit Jogar Agora" [ref=e487] [cursor=pointer]:
+                - /url: /jogos/dork-unit
+                - generic [ref=e488]:
+                  - img "Dork Unit" [ref=e489]
+                  - generic [ref=e493]: Jogar Agora
+              - link "Le Bandit Jogar Agora" [ref=e495] [cursor=pointer]:
+                - /url: /jogos/le-bandit
+                - generic [ref=e496]:
+                  - img "Le Bandit" [ref=e497]
+                  - generic [ref=e501]: Jogar Agora
+              - link "Donny Dough Jogar Agora" [ref=e503] [cursor=pointer]:
+                - /url: /jogos/donny-dough
+                - generic [ref=e504]:
+                  - img "Donny Dough" [ref=e505]
+                  - generic [ref=e509]: Jogar Agora
+              - link "Rip City Jogar Agora" [ref=e511] [cursor=pointer]:
+                - /url: /jogos/rip-city
+                - generic [ref=e512]:
+                  - img "Rip City" [ref=e513]
+                  - generic [ref=e517]: Jogar Agora
+              - link "Dead or Alive Jogar Agora" [ref=e519] [cursor=pointer]:
+                - /url: /jogos/dead-or-alive
+                - generic [ref=e520]:
+                  - img "Dead or Alive" [ref=e521]
+                  - generic [ref=e525]: Jogar Agora
+              - link "Money Cart 2 Jogar Agora" [ref=e527] [cursor=pointer]:
+                - /url: /jogos/money-cart-2
+                - generic [ref=e528]:
+                  - img "Money Cart 2" [ref=e529]
+                  - generic [ref=e533]: Jogar Agora
+              - link "Money Train 4 Jogar Agora" [ref=e535] [cursor=pointer]:
+                - /url: /jogos/money-train-4
+                - generic [ref=e536]:
+                  - img "Money Train 4" [ref=e537]
+                  - generic [ref=e541]: Jogar Agora
+              - link "Speed Winner Jogar Agora" [ref=e543] [cursor=pointer]:
+                - /url: /jogos/speed-winner
+                - generic [ref=e544]:
+                  - img "Speed Winner" [ref=e545]
+                  - generic [ref=e549]: Jogar Agora
+              - link "Book of Ra Jogar Agora" [ref=e551] [cursor=pointer]:
+                - /url: /jogos/book-of-ra
+                - generic [ref=e552]:
+                  - img "Book of Ra" [ref=e553]
+                  - generic [ref=e557]: Jogar Agora
+              - link "Luxor Gold Jogar Agora" [ref=e559] [cursor=pointer]:
+                - /url: /jogos/luxor-gold
+                - generic [ref=e560]:
+                  - img "Luxor Gold" [ref=e561]
+                  - generic [ref=e565]: Jogar Agora
+              - link "Coin Strike Jogar Agora" [ref=e567] [cursor=pointer]:
+                - /url: /jogos/coin-strike
+                - generic [ref=e568]:
+                  - img "Coin Strike" [ref=e569]
+                  - generic [ref=e573]: Jogar Agora
+              - link "Thunder Coins Jogar Agora" [ref=e575] [cursor=pointer]:
+                - /url: /jogos/thunder-coins
+                - generic [ref=e576]:
+                  - img "Thunder Coins" [ref=e577]
+                  - generic [ref=e581]: Jogar Agora
+        - link "Banner Promocional" [ref=e583] [cursor=pointer]:
+          - /url: "#"
+          - img "Banner Promocional" [ref=e585]
+        - generic [ref=e587]:
+          - generic [ref=e588]:
+            - heading "Esportes" [level=2] [ref=e590]
+            - button "Ver todos" [ref=e591] [cursor=pointer]
+          - generic [ref=e593] [cursor=pointer]:
+            - generic [ref=e594]:
+              - img "Fundo Futebol" [ref=e595]
+              - generic [ref=e597]: Futebol
+            - img "Futebol" [ref=e599]
+      - generic [ref=e601]:
+        - generic [ref=e604]:
+          - generic [ref=e605]:
+            - heading "Serviços" [level=3] [ref=e606]
+            - list [ref=e607]:
+              - listitem [ref=e608]:
+                - link "Promoções" [ref=e609] [cursor=pointer]:
+                  - /url: /promocoes
+              - listitem [ref=e610]:
+                - link "Torneios" [ref=e611] [cursor=pointer]:
+                  - /url: /torneios
+              - listitem [ref=e612]:
+                - link "VIP Club" [ref=e613] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e614]:
+                - link "Indicação" [ref=e615] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e616]:
+                - link "Jackpots" [ref=e617] [cursor=pointer]:
+                  - /url: "#"
+            - button "🇧🇷 Português ▼" [ref=e619] [cursor=pointer]:
+              - generic [ref=e620]: 🇧🇷
+              - generic [ref=e621]: Português
+              - generic [ref=e622]: ▼
+          - generic [ref=e623]:
+            - heading "Informações" [level=3] [ref=e624]
+            - list [ref=e625]:
+              - listitem [ref=e626]:
+                - link "Sobre Nós" [ref=e627] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e628]:
+                - link "Contato" [ref=e629] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e630]:
+                - link "Informações de Apostas" [ref=e631] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e632]:
+                - link "Regras de Apostas" [ref=e633] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e634]:
+                - link "FAQ" [ref=e635] [cursor=pointer]:
+                  - /url: /suporte
+              - listitem [ref=e636]:
+                - link "Termos de Uso" [ref=e637] [cursor=pointer]:
+                  - /url: /termos
+              - listitem [ref=e638]:
+                - link "Política de Privacidade" [ref=e639] [cursor=pointer]:
+                  - /url: /privacidade
+              - listitem [ref=e640]:
+                - link "Jogo Responsável" [ref=e641] [cursor=pointer]:
+                  - /url: /jogo-responsavel
+              - listitem [ref=e642]:
+                - link "Política de Autoexclusão" [ref=e643] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e644]:
+                - link "Política KYC" [ref=e645] [cursor=pointer]:
+                  - /url: "#"
+          - generic [ref=e646]:
+            - heading "Esportes" [level=3] [ref=e647]
+            - list [ref=e648]:
+              - listitem [ref=e649]:
+                - link "Apostas ao Vivo" [ref=e650] [cursor=pointer]:
+                  - /url: /esportes
+              - listitem [ref=e651]:
+                - link "Futebol" [ref=e652] [cursor=pointer]:
+                  - /url: /esportes
+              - listitem [ref=e653]:
+                - link "Basquete" [ref=e654] [cursor=pointer]:
+                  - /url: /esportes
+              - listitem [ref=e655]:
+                - link "Tênis" [ref=e656] [cursor=pointer]:
+                  - /url: /esportes
+              - listitem [ref=e657]:
+                - link "Vôlei" [ref=e658] [cursor=pointer]:
+                  - /url: /esportes
+              - listitem [ref=e659]:
+                - link "eSports" [ref=e660] [cursor=pointer]:
+                  - /url: /esportes
+          - generic [ref=e661]:
+            - heading "Programa de Afiliados" [level=3] [ref=e662]
+            - paragraph [ref=e663]:
+              - text: Faça parte do nosso time de vencedores! Junte-se ao programa de afiliados da NovaBet e ganhe dinheiro por cada jogador indicado. Quanto mais jogadores você levar, mais alto você sobe no ranking de comissões.
+              - link "Cadastre-se agora!" [ref=e664] [cursor=pointer]:
+                - /url: "#"
+          - generic [ref=e665]:
+            - heading "Jogue Agora" [level=3] [ref=e666]
+            - list [ref=e667]:
+              - listitem [ref=e668]:
+                - link "Cassino" [ref=e669] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e670]:
+                - link "Cassino ao Vivo" [ref=e671] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e672]:
+                - link "Esportes" [ref=e673] [cursor=pointer]:
+                  - /url: /esportes
+              - listitem [ref=e674]:
+                - link "Esportes Virtuais" [ref=e675] [cursor=pointer]:
+                  - /url: "#"
+            - generic [ref=e676]:
+              - heading "Siga-nos" [level=4] [ref=e677]
+              - generic [ref=e678]:
+                - link "📷" [ref=e679] [cursor=pointer]:
+                  - /url: "#"
+                - link "📘" [ref=e680] [cursor=pointer]:
+                  - /url: "#"
+                - link "🐦" [ref=e681] [cursor=pointer]:
+                  - /url: "#"
+                - link "✈️" [ref=e682] [cursor=pointer]:
+                  - /url: "#"
+                - link "▶️" [ref=e683] [cursor=pointer]:
+                  - /url: "#"
+        - generic [ref=e685]:
+          - img "Pix" [ref=e686]
+          - img "Banco do Brasil" [ref=e687]
+          - img "Bradesco" [ref=e688]
+          - img "Itaú" [ref=e689]
+          - img "Caixa" [ref=e690]
+          - img "Santander" [ref=e691]
+          - img "AstroPay" [ref=e692]
+        - generic [ref=e693]:
+          - generic [ref=e694]:
+            - generic [ref=e695]: 18+
+            - generic [ref=e696]: JOGO RESPONSÁVEL
+            - generic [ref=e697]: •
+            - generic [ref=e698]: BeGambleAware
+          - paragraph [ref=e699]: © 2026 NovaBet. Todos os direitos reservados. Proibido para menores de 18 anos. Jogue com responsabilidade.
+    - navigation [ref=e700]:
+      - generic [ref=e701]:
+        - link "🏠 Início" [ref=e702] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e703]: 🏠
+          - generic [ref=e704]: Início
+        - link "🎮 Jogos" [ref=e706] [cursor=pointer]:
+          - /url: /jogos
+          - generic [ref=e707]: 🎮
+          - generic [ref=e708]: Jogos
+        - link "🎁 Bônus" [ref=e709] [cursor=pointer]:
+          - /url: /promocoes
+          - generic [ref=e710]: 🎁
+          - generic [ref=e711]: Bônus
+        - button "💰 Depositar" [ref=e712] [cursor=pointer]:
+          - generic [ref=e713]: 💰
+          - generic [ref=e714]: Depositar
+        - link "👤 Conta" [ref=e715] [cursor=pointer]:
+          - /url: /minha-conta
+          - generic [ref=e716]: 👤
+          - generic [ref=e717]: Conta
+  - button "💬" [ref=e718] [cursor=pointer]
+  - generic [ref=e719]:
+    - generic [ref=e720]:
+      - generic [ref=e721]: 🍪
+      - paragraph [ref=e722]: Usamos cookies para melhorar sua experiência. Ao continuar navegando, você aceita nossa Política de Cookies.
+    - generic [ref=e723]:
+      - button "RECUSAR" [ref=e724] [cursor=pointer]
+      - button "ACEITAR" [ref=e725] [cursor=pointer]
+  - navigation [ref=e726]:
+    - generic [ref=e727]:
+      - link "🏠 Início" [ref=e728] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e729]: 🏠
+        - generic [ref=e730]: Início
+      - link "🎮 Jogos" [ref=e732] [cursor=pointer]:
+        - /url: /jogos
+        - generic [ref=e733]: 🎮
+        - generic [ref=e734]: Jogos
+      - link "🎁 Bônus" [ref=e735] [cursor=pointer]:
+        - /url: /promocoes
+        - generic [ref=e736]: 🎁
+        - generic [ref=e737]: Bônus
+      - button "💰 Depositar" [ref=e738] [cursor=pointer]:
+        - generic [ref=e739]: 💰
+        - generic [ref=e740]: Depositar
+      - link "👤 Conta" [ref=e741] [cursor=pointer]:
+        - /url: /minha-conta
+        - generic [ref=e742]: 👤
+        - generic [ref=e743]: Conta

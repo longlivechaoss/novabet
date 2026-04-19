@@ -1,0 +1,116 @@
+
+> novabet@0.1.0 dev
+> next dev --hostname 127.0.0.1 --port 3001
+
+  ▲ Next.js 14.2.35
+  - Local:        http://127.0.0.1:3001
+  - Network:      http://127.0.0.1:3001
+
+ ✓ Starting...
+ ✓ Ready in 2.4s
+ ○ Compiling /jogos ...
+ ✓ Compiled /jogos in 1983ms (1365 modules)
+ GET /jogos 200 in 2580ms
+ GET /jogos 200 in 103ms
+ ✓ Compiled in 2.2s (1379 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Thiago\Desktop\NOVABET\novabet\.next\cache\webpack\client-development\11.pack.gz_' -> 'C:\Users\Thiago\Desktop\NOVABET\novabet\.next\cache\webpack\client-development\11.pack.gz'
+ ✓ Compiled /_not-found in 369ms (1368 modules)
+ GET /jogos 404 in 612ms
+ GET /_next/static/css/app/layout.css?v=1776378527381 404 in 61ms
+ GET /_next/static/chunks/main-app.js?v=1776378527381 404 in 56ms
+ GET /_next/static/chunks/app/not-found.js 404 in 54ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 55ms
+ GET /_next/static/chunks/app/layout.js 404 in 52ms
+ ✓ Compiled in 444ms (698 modules)
+ ✓ Compiled in 227ms (698 modules)
+ ✓ Compiled in 388ms (698 modules)
+ ✓ Compiled in 274ms (698 modules)
+ ✓ Compiled in 1052ms (1380 modules)
+ ✓ Compiled in 493ms (698 modules)
+ ✓ Compiled in 246ms (698 modules)
+ ✓ Compiled in 293ms (698 modules)
+ ✓ Compiled in 309ms (698 modules)
+ ✓ Compiled in 679ms (1380 modules)
+ ⚠ Your page app/jogos/page.tsx did not have a root layout. We created app\layout.tsx for you.
+ ✓ Compiled in 886ms (1343 modules)
+ ✓ Compiled in 588ms (1366 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Thiago\Desktop\NOVABET\novabet\.next\cache\webpack\server-development\10.pack.gz_' -> 'C:\Users\Thiago\Desktop\NOVABET\novabet\.next\cache\webpack\server-development\10.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Thiago\Desktop\NOVABET\novabet\.next\cache\webpack\client-development\7.pack.gz_' -> 'C:\Users\Thiago\Desktop\NOVABET\novabet\.next\cache\webpack\client-development\7.pack.gz'
+ ✓ Compiled in 417ms (698 modules)
+ ✓ Compiled in 353ms (698 modules)
+ ⨯ ./components/layout/Footer.tsx
+Error: Failed to read source code from C:\Users\Thiago\Desktop\NOVABET\novabet\components\layout\Footer.tsx
+
+Caused by:
+    O sistema não pode encontrar o arquivo especificado. (os error 2)
+
+Import trace for requested module:
+./components/layout/Footer.tsx
+./components/layout/SiteShell.tsx
+./app/jogos/page.tsx
+ ⨯ ./components/layout/Footer.tsx
+Error: Failed to read source code from C:\Users\Thiago\Desktop\NOVABET\novabet\components\layout\Footer.tsx
+
+Caused by:
+    O sistema não pode encontrar o arquivo especificado. (os error 2)
+
+Import trace for requested module:
+./components/layout/Footer.tsx
+./components/layout/SiteShell.tsx
+./app/jogos/page.tsx
+ ✓ Compiled in 1896ms (1380 modules)
+ ✓ Compiled in 1320ms (1380 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: EPERM: operation not permitted, rename 'C:\Users\Thiago\Desktop\NOVABET\novabet\.next\cache\webpack\server-development\3.pack.gz_' -> 'C:\Users\Thiago\Desktop\NOVABET\novabet\.next\cache\webpack\server-development\3.pack.gz'
+ ✓ Compiled in 831ms (1380 modules)
+ ✓ Compiled in 5.1s (1380 modules)
+ ✓ Compiled in 3.1s (1380 modules)
+ ✓ Compiled in 1363ms (1377 modules)
+ ✓ Compiled in 240ms (697 modules)
+ ✓ Compiled in 597ms (1363 modules)
+ ✓ Compiled in 678ms (1363 modules)
+ ✓ Compiled in 302ms (697 modules)
+ ⨯ ./components/layout/TopBanner.tsx
+Error: Failed to read source code from C:\Users\Thiago\Desktop\NOVABET\novabet\components\layout\TopBanner.tsx
+
+Caused by:
+    O sistema não pode encontrar o arquivo especificado. (os error 2)
+
+Import trace for requested module:
+./components/layout/TopBanner.tsx
+./app/layout.tsx
+ ✓ Compiled in 185ms (696 modules)
+ ✓ Compiled in 1171ms (1377 modules)
+ ✓ Compiled in 1796ms (697 modules)
+ ✓ Compiled in 264ms (697 modules)
+ ✓ Compiled in 303ms (697 modules)
+ ✓ Compiled in 310ms (697 modules)
+ ✓ Compiled in 1034ms (1377 modules)
+ ✓ Compiled in 478ms (1377 modules)
+ ✓ Compiled in 2s (1374 modules)
+ ✓ Compiled in 533ms (1374 modules)
+ ✓ Compiled in 441ms (1374 modules)
+ ✓ Compiled in 382ms (1376 modules)
+ ✓ Compiled in 409ms (1376 modules)
+ ✓ Compiled in 719ms (697 modules)
+ ✓ Compiled in 260ms (683 modules)
+ ✓ Compiled in 406ms (697 modules)
+ ✓ Compiled in 817ms (697 modules)
+ ✓ Compiled in 631ms (697 modules)
+ ✓ Compiled in 529ms (697 modules)
+ ✓ Compiled in 1313ms (1376 modules)
+ ✓ Compiled in 614ms (697 modules)
+ ✓ Compiled in 257ms (697 modules)
+ ✓ Compiled in 219ms (697 modules)
+ ✓ Compiled in 962ms (1376 modules)
+ ✓ Compiled in 403ms (697 modules)
+ ✓ Compiled in 444ms (697 modules)
+ ✓ Compiled in 340ms (697 modules)
+ ✓ Compiled in 553ms (697 modules)
+ ✓ Compiled in 301ms (697 modules)
+ ✓ Compiled in 282ms (697 modules)
+ ✓ Compiled in 499ms (697 modules)
+ ✓ Compiled in 281ms (697 modules)
+ ✓ Compiled in 515ms (697 modules)
+ ✓ Compiled in 374ms (697 modules)
+ ✓ Compiled in 911ms (1376 modules)
+ ✓ Compiled in 394ms (697 modules)
