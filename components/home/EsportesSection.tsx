@@ -2,13 +2,14 @@
 import { motion } from 'framer-motion'
 
 const esportes = [
-  {
-    id: 1,
-    nome: 'Futebol',
-    bgImagem: '/images/esportes/bg_futebol.webp',
-    atletaImagem: '/images/esportes/atleta_futebol.webp',
-  },
-  // Adicionar os outros quando tiver as imagens prontas
+  { id: 1, nome: 'Futebol', imagem: '/images/esportes/atleta_futebol.webp', bgImagem: '/images/esportes/bg_futebol.webp' },
+  { id: 2, nome: 'Basquete', imagem: '/images/esportes/atleta_futebol.webp', bgImagem: '/images/esportes/bg_futebol.webp' },
+  { id: 3, nome: 'Tênis', imagem: '/images/esportes/atleta_futebol.webp', bgImagem: '/images/esportes/bg_futebol.webp' },
+  { id: 4, nome: 'Vôlei', imagem: '/images/esportes/atleta_futebol.webp', bgImagem: '/images/esportes/bg_futebol.webp' },
+  { id: 5, nome: 'eSports', imagem: '/images/esportes/atleta_futebol.webp', bgImagem: '/images/esportes/bg_futebol.webp' },
+  { id: 6, nome: 'MMA', imagem: '/images/esportes/atleta_futebol.webp', bgImagem: '/images/esportes/bg_futebol.webp' },
+  { id: 7, nome: 'Fórmula 1', imagem: '/images/esportes/atleta_futebol.webp', bgImagem: '/images/esportes/bg_futebol.webp' },
+  { id: 8, nome: 'Boxe', imagem: '/images/esportes/atleta_futebol.webp', bgImagem: '/images/esportes/bg_futebol.webp' },
 ]
 
 export default function EsportesSection() {
@@ -110,7 +111,7 @@ export default function EsportesSection() {
               whileHover={{ y: -14, transition: { duration: 0.25, ease: 'easeOut' } }}
             >
               <img
-                src={esporte.atletaImagem}
+                src={esporte.imagem}
                 alt={esporte.nome}
                 style={{
                   width: '160px',

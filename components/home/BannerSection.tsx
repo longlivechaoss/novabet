@@ -5,16 +5,12 @@
  * Mobile: 750×380px — ver comentários anteriores no repositório.
  */
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
 
 import { useBanners } from "@/hooks/useBanners";
 
 export default function BannerSection() {
-  const bannerRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: bannerRef, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-
   const [activeIndex, setActiveIndex] = useState(0);
   const [mobileActiveIndex, setMobileActiveIndex] = useState(0);
   const [mainFailedImages, setMainFailedImages] = useState<Record<number, boolean>>({});
@@ -247,7 +243,6 @@ export default function BannerSection() {
 
       {/* DESKTOP — carrossel largura total */}
       <div
-        ref={bannerRef}
         className="relative hidden w-full overflow-hidden rounded-xl border border-nova-card/60 bg-nova-card md:block"
         style={{
           aspectRatio: "1720/720",
@@ -255,7 +250,7 @@ export default function BannerSection() {
           position: "relative"
         }}
       >
-        <motion.div style={{ y }} className="h-full w-full overflow-hidden">
+        <div className="h-full w-full overflow-hidden">
           <div
             className="flex h-full transition-transform duration-700 ease-out"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -282,7 +277,7 @@ export default function BannerSection() {
               </a>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         <button
           type="button"
