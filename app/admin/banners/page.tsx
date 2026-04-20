@@ -37,6 +37,13 @@ export default function AdminBannersPage() {
   const [error, setError] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
   const fileInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [newBannerTipo, setNewBannerTipo] = useState<"principal" | "lateral" | "mobile">("principal");
+  const [newBannerLabel, setNewBannerLabel] = useState("");
+  const [newBannerFile, setNewBannerFile] = useState<File | null>(null);
+  const [adding, setAdding] = useState(false);
+  const [addError, setAddError] = useState("");
+  const addFileRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     loadBanners();
@@ -84,6 +91,68 @@ export default function AdminBannersPage() {
     }
   }
 
+  async function handleAddBanner() {
+    if (!newBannerFile || !newBannerLabel) {
+      setAddError("Preencha o nome e selecione uma imagem.");
+      return;
+    }
+
+    setAdding(true);
+    setAddError("");
+
+    // Generate unique ID
+    const newId = `${newBannerTipo}-${Date.now()}`;
+
+    const formData = new FormData();
+    formData.append("file", newBannerFile);
+    formData.append("bannerId", newId);
+
+    try {
+      const res = await fetch("/api/banners/upload", {
+        method: "POST",
+        body: formData
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      // Get next ordem
+      const existingOfType = banners.filter((b) => b.tipo === newBannerTipo);
+      const nextOrdem = existingOfType.length + 1;
+
+      // Insert into Supabase
+      const { error } = await supabase.from("banners").insert({
+        id: newId,
+        label: newBannerLabel,
+        url: data.url,
+        tipo: newBannerTipo,
+        ordem: nextOrdem
+      });
+
+      if (error) throw error;
+
+      // Reload banners
+      await loadBanners();
+
+      // Reset modal
+      setShowAddModal(false);
+      setNewBannerLabel("");
+      setNewBannerFile(null);
+      setNewBannerTipo("principal");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Erro ao adicionar banner";
+      setAddError(msg);
+    } finally {
+      setAdding(false);
+    }
+  }
+
+  async function handleDeleteBanner(bannerId: string) {
+    if (!confirm("Tem certeza que deseja remover este banner?")) return;
+
+    const { error } = await supabase.from("banners").delete().eq("id", bannerId);
+    if (!error) await loadBanners();
+  }
+
   const bannersFiltrados =
     filtro === "todos" ? banners : banners.filter((b) => b.tipo === filtro);
 
@@ -97,12 +166,21 @@ export default function AdminBannersPage() {
               Clique em &quot;Trocar imagem&quot; para fazer upload direto pelo painel.
             </p>
           </div>
-          <a
-            href="/admin"
-            className="rounded-lg bg-nova-card px-4 py-2 text-sm text-gray-400 transition hover:text-white"
-          >
-            ← Voltar ao Admin
-          </a>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setShowAddModal(true)}
+              className="rounded-lg bg-nova-blue px-4 py-2 text-sm font-semibold text-white transition hover:bg-nova-blueLight"
+            >
+              + Adicionar Banner
+            </button>
+            <a
+              href="/admin"
+              className="rounded-lg bg-nova-card px-4 py-2 text-sm text-gray-400 transition hover:text-white"
+            >
+              ← Voltar ao Admin
+            </a>
+          </div>
         </div>
 
         {/* Guia de tamanhos */}
@@ -225,12 +303,108 @@ export default function AdminBannersPage() {
                   >
                     {uploading[banner.id] ? "Enviando..." : "🔄 Trocar imagem"}
                   </button>
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteBanner(banner.id)}
+                    className="mt-2 w-full rounded-lg border border-red-500/30 bg-red-500/10 py-2 text-sm font-semibold text-red-400 transition hover:bg-red-500/20"
+                  >
+                    🗑️ Remover banner
+                  </button>
                 </div>
               </div>
             ))}
           </div>
         )}
       </div>
+
+      {/* Modal Adicionar Banner */}
+      {showAddModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+          <div className="w-full max-w-md rounded-xl border border-nova-border bg-nova-card p-6">
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="text-lg font-bold text-white">+ Adicionar Banner</h2>
+              <button
+                type="button"
+                onClick={() => {
+                  setShowAddModal(false);
+                  setAddError("");
+                }}
+                className="text-xl text-gray-400 hover:text-white"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Tipo */}
+            <div className="mb-4">
+              <label className="mb-1 block text-xs font-semibold text-gray-400">Tipo de banner</label>
+              <div className="flex gap-2">
+                {(["principal", "lateral", "mobile"] as const).map((tipo) => (
+                  <button
+                    key={tipo}
+                    type="button"
+                    onClick={() => setNewBannerTipo(tipo)}
+                    className={`flex-1 rounded-lg py-2 text-xs font-semibold transition ${
+                      newBannerTipo === tipo
+                        ? "bg-nova-blue text-white"
+                        : "bg-nova-elevated text-gray-400 hover:text-white"
+                    }`}
+                  >
+                    {tipoLabels[tipo]}
+                  </button>
+                ))}
+              </div>
+              <p className="mt-1 text-xs text-gray-500">
+                Tamanho recomendado: <span className="text-white">{tipoSizes[newBannerTipo]}</span>
+              </p>
+            </div>
+
+            {/* Nome */}
+            <div className="mb-4">
+              <label className="mb-1 block text-xs font-semibold text-gray-400">Nome do banner</label>
+              <input
+                type="text"
+                value={newBannerLabel}
+                onChange={(e) => setNewBannerLabel(e.target.value)}
+                placeholder="Ex: Banner Fortune Tiger"
+                className="w-full rounded-lg border border-nova-border bg-nova-elevated px-3 py-2 text-sm text-white placeholder-gray-600 focus:border-nova-blue focus:outline-none"
+              />
+            </div>
+
+            {/* Imagem */}
+            <div className="mb-4">
+              <label className="mb-1 block text-xs font-semibold text-gray-400">Imagem</label>
+              <input
+                ref={addFileRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={(e) => setNewBannerFile(e.target.files?.[0] || null)}
+              />
+              <button
+                type="button"
+                onClick={() => addFileRef.current?.click()}
+                className="w-full rounded-lg border border-dashed border-nova-border bg-nova-elevated py-3 text-sm text-gray-400 transition hover:border-nova-blue hover:text-white"
+              >
+                {newBannerFile ? `✅ ${newBannerFile.name}` : "📁 Clique para selecionar imagem"}
+              </button>
+            </div>
+
+            {addError && (
+              <p className="mb-3 rounded bg-red-900/30 p-2 text-xs text-red-400">❌ {addError}</p>
+            )}
+
+            <button
+              type="button"
+              onClick={handleAddBanner}
+              disabled={adding}
+              className="w-full rounded-lg bg-nova-blue py-3 text-sm font-bold text-white transition hover:bg-nova-blueLight disabled:opacity-50"
+            >
+              {adding ? "Adicionando..." : "✅ Adicionar Banner"}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

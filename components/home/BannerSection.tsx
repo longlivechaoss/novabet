@@ -99,7 +99,7 @@ export default function BannerSection() {
   }
 
   return (
-    <section className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_380px]">
+    <section className="grid gap-5 items-stretch xl:grid-cols-[minmax(0,1fr)_380px]">
       {/* MOBILE BANNER */}
       <div
         className="block md:hidden"
@@ -237,8 +237,12 @@ export default function BannerSection() {
       {/* DESKTOP — carrossel largura total */}
       <div
         ref={bannerRef}
-        className="relative hidden h-[360px] w-full overflow-hidden rounded-xl border border-nova-card/60 bg-nova-card md:block"
-        style={{ boxShadow: "0 0 30px rgba(22, 82, 240, 0.14)", position: "relative" }}
+        className="relative hidden w-full overflow-hidden rounded-xl border border-nova-card/60 bg-nova-card md:block"
+        style={{
+          aspectRatio: "1720/720",
+          boxShadow: "0 0 30px rgba(22, 82, 240, 0.14)",
+          position: "relative"
+        }}
       >
         <motion.div style={{ y }} className="h-full w-full overflow-hidden">
           <div
@@ -336,18 +340,17 @@ export default function BannerSection() {
         </div>
       </div>
 
-      <div className="hidden gap-5 md:grid md:grid-cols-2 xl:h-[360px] xl:grid-cols-1 xl:grid-rows-2">
+      <div className="hidden md:flex md:flex-row xl:flex-col gap-5" style={{ flex: "0 0 380px" }}>
         {lateraisParaRenderizar.map((banner) => (
           <motion.a
             key={banner.id}
             href={banner.link}
             whileHover={{ scale: 1.02 }}
-            className="relative h-[170px] overflow-hidden rounded-xl border xl:h-full"
-            style={{ borderColor: "rgba(46, 48, 69, 0.95)" }}
+            className="relative flex-1 overflow-hidden rounded-xl border"
+            style={{ borderColor: "rgba(46, 48, 69, 0.95)", minHeight: 0 }}
             aria-label={banner.alt}
           >
             <div className={`absolute inset-0 bg-gradient-to-br ${banner.gradient}`} />
-
             {!sideFailedImages[banner.id] ? (
               <img
                 src={banner.imagem}
