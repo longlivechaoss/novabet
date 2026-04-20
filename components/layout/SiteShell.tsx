@@ -31,7 +31,6 @@ type SiteShellProps = {
   rawContent?: boolean;
   mainClassName?: string;
   contentClassName?: string;
-  autoOpenCadastro?: boolean;
 };
 
 export default function SiteShell({
@@ -42,8 +41,7 @@ export default function SiteShell({
   initialLoggedIn = false,
   rawContent = false,
   mainClassName = "min-h-screen transition-all duration-300",
-  contentClassName = "mx-auto flex w-full max-w-[1440px] flex-col px-4 py-8 lg:px-8",
-  autoOpenCadastro = false
+  contentClassName = "mx-auto flex w-full max-w-[1440px] flex-col px-4 py-8 lg:px-8"
 }: SiteShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [modalCadastro, setModalCadastro] = useState(false);
@@ -52,7 +50,6 @@ export default function SiteShell({
   const [modalSaque, setModalSaque] = useState(false);
   const [modalRoleta, setModalRoleta] = useState(false);
   const [isLogado, setIsLogado] = useState(initialLoggedIn);
-  const [autoAberto, setAutoAberto] = useState(false);
   const [topBannerVisivel, setTopBannerVisivel] = useState(true);
 
   const alturaTopo = topBannerVisivel ? 36 + 56 : 56;
@@ -64,19 +61,6 @@ export default function SiteShell({
       document.documentElement.style.setProperty("--top-banner-height", "0px");
     };
   }, [topBannerVisivel]);
-
-  useEffect(() => {
-    if (!autoOpenCadastro || autoAberto) {
-      return undefined;
-    }
-
-    const timer = window.setTimeout(() => {
-      setModalCadastro(true);
-      setAutoAberto(true);
-    }, 1500);
-
-    return () => window.clearTimeout(timer);
-  }, [autoAberto, autoOpenCadastro]);
 
   function abrirCadastro() {
     setModalLogin(false);

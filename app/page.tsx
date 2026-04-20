@@ -242,7 +242,6 @@ export default function HomePage() {
   return (
     <SiteShell
       withFooter
-      autoOpenCadastro
       contentClassName="mx-auto flex w-full max-w-[1440px] flex-col gap-3 px-4 py-4 lg:px-8"
     >
       {({ isLogado }) => (
