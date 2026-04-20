@@ -1,23 +1,14 @@
 "use client";
 
 /*
- * Banners: URLs vêm da tabela `banners` no Supabase (hook useBanners + Realtime).
- * Fallback: `data/jogos.ts` (banners, bannersLaterais) e lista mobile local se o fetch falhar/vazio.
+ * Banners: URLs da tabela `banners` no Supabase (hook useBanners + Realtime).
  * Mobile: 750×380px — ver comentários anteriores no repositório.
  */
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import { banners, bannersLaterais } from "@/data/jogos";
 import { useBanners } from "@/hooks/useBanners";
-
-const mobileFallback = [
-  { src: "/images/banners/mobile-1.webp", alt: "Promoção 1", href: "/" },
-  { src: "/images/banners/mobile-2.webp", alt: "Promoção 2", href: "/" },
-  { src: "/images/banners/mobile-3.webp", alt: "Promoção 3", href: "/" },
-  { src: "/images/banners/mobile-4.webp", alt: "Promoção 4", href: "/" }
-];
 
 export default function BannerSection() {
   const bannerRef = useRef(null);
@@ -29,7 +20,8 @@ export default function BannerSection() {
   const [mainFailedImages, setMainFailedImages] = useState<Record<number, boolean>>({});
   const [sideFailedImages, setSideFailedImages] = useState<Record<number, boolean>>({});
 
-  const { principal: bannersDB, lateral: lateraisDB, mobile: mobileDB } = useBanners();
+  const { principal: bannersDB, lateral: lateraisDB, mobile: mobileDB, loading: bannersLoading } =
+    useBanners();
 
   const slidesParaRenderizar = useMemo(
     () =>
@@ -41,7 +33,7 @@ export default function BannerSection() {
             alt: b.label,
             gradient: "from-nova-card to-nova-elevated"
           }))
-        : banners,
+        : [],
     [bannersDB]
   );
 
@@ -55,15 +47,12 @@ export default function BannerSection() {
             alt: b.label,
             gradient: "from-nova-card to-nova-elevated"
           }))
-        : bannersLaterais,
+        : [],
     [lateraisDB]
   );
 
   const mobileBanners = useMemo(
-    () =>
-      mobileDB.length > 0
-        ? mobileDB.map((b) => ({ src: b.url, alt: b.label, href: "/" }))
-        : mobileFallback,
+    () => (mobileDB.length > 0 ? mobileDB.map((b) => ({ src: b.url, alt: b.label, href: "/" })) : []),
     [mobileDB]
   );
 
@@ -96,6 +85,28 @@ export default function BannerSection() {
 
   function goNextSlide() {
     setActiveIndex((i) => (i + 1) % totalSlides);
+  }
+
+  if (bannersLoading) {
+    return (
+      <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_380px]">
+        {/* Skeleton banner principal */}
+        <div
+          className="hidden w-full overflow-hidden rounded-xl bg-nova-card animate-pulse md:block"
+          style={{ aspectRatio: "1720/720" }}
+        />
+        {/* Skeleton laterais */}
+        <div className="hidden gap-5 md:flex xl:flex-col" style={{ flex: "0 0 380px" }}>
+          <div className="flex-1 rounded-xl bg-nova-card animate-pulse" />
+          <div className="flex-1 rounded-xl bg-nova-card animate-pulse" />
+        </div>
+        {/* Skeleton mobile */}
+        <div
+          className="block rounded-xl bg-nova-card animate-pulse md:hidden"
+          style={{ height: "160px", margin: "4px -16px 8px" }}
+        />
+      </div>
+    );
   }
 
   return (
